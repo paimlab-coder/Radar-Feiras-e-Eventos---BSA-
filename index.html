@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Tech - Feiras, Congressos e Eventos | Bertolini BSA</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        bertolini: {
+                            50: '#fef2f2',
+                            100: '#ffe1e1',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            dark: '#0a0d14',
+                            card: '#131926',
+                            border: '#1e293b'
+                        },
+                        amber: {
+                            500: '#f59e0b',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #080b11;
+            color: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0d121d;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+        .glass-panel {
+            background: rgba(19, 25, 38, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .pulse-live {
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between text-slate-100 antialiased custom-scrollbar selection:bg-red-600 selection:text-white">
+
+    <!-- TOP HEADER WITH CENTERED BERTOLINI LOGO -->
+    <header class="w-full bg-[#0d121d] border-b border-slate-800/80 sticky top-0 z-40 shadow-2xl backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <!-- CENTERED LOGO PROMINENT DISPLAY -->
+            <div class="flex flex-col items-center justify-center border-b border-slate-800/60 pb-4 mb-4">
+                <a href="#" class="transition-transform duration-300 hover:scale-105 inline-block">
+                    <img src="https://www.bertoliniarmazenagem.com.br/wp-content/uploads/2024/11/bertolini-logo-claro.svg" 
+                         alt="Bertolini BSA - Sistemas de Armazenagem" 
+                         class="h-12 sm:h-16 w-auto object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
+                         onerror="this.onerror=null; this.src='https://placehold.co/300x80/0d121d/ffffff?text=Bertolini+BSA';">
+                </a>
+                <span class="text-xs uppercase tracking-widest text-slate-400 font-semibold mt-2">Sistemas de Armazenagem & Automação Logística</span>
+            </div>
+
+            <!-- DASHBOARD BAR -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="p-2.5 bg-gradient-to-br from-red-600 to-red-800 rounded-xl text-white shadow-lg shadow-red-900/30">
+                        <i class="fa-solid fa-calendar-days text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight flex items-center gap-2">
+                            Agenda Tech <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-red-900/40 text-red-400 border border-red-700/50">sysINFO Sync</span>
+                        </h1>
+                        <p class="text-xs text-slate-400">Feiras, Congressos e Eventos Estratégicos de Tecnologia & Logística</p>
+                    </div>
+                </div>
+
+                <!-- AUTO-REFRESH STATUS TICKER -->
+                <div class="flex items-center gap-4 bg-slate-900/80 px-4 py-2 rounded-xl border border-slate-800 text-xs text-slate-300">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 pulse-live"></span>
+                        <span class="font-medium text-slate-200">Sincronização em tempo real</span>
+                    </div>
+                    <div class="h-4 w-[1px] bg-slate-800"></div>
+                    <div class="flex items-center gap-2 font-mono">
+                        <i class="fa-solid fa-arrows-rotate text-slate-400 text-xs cursor-pointer hover:text-white transition" id="manualRefreshBtn" title="Forçar Atualização"></i>
+                        <span>Próxima atualização: <strong id="timerCountdown" class="text-amber-400">30s</strong></span>
+                    </div>
+                    <button id="toggleAutoRefresh" class="text-[10px] uppercase font-bold bg-slate-800 hover:bg-slate-700 px-2 py-1 rounded text-slate-300 transition">
+                        Pausar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+        
+        <!-- METRICS COUNTERS -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div class="glass-panel p-5 rounded-2xl border border-slate-800/80 shadow-lg relative overflow-hidden group">
+                <div class="absolute -right-4 -bottom-4 opacity-10 group-hover:opacity-20 transition text-red-500">
+                    <i class="fa-solid fa-layer-group text-7xl"></i>
+                </div>
+                <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Total de Eventos</div>
+                <div class="text-3xl font-extrabold text-white" id="statTotalEvents">0</div>
+                <div class="text-[11px] text-slate-500 mt-2 flex items-center gap-1">
+                    <i class="fa-solid fa-check text-emerald-400"></i> Mapeados no Radar
+                </div>
+            </div>
+
+            <div class="glass-panel p-5 rounded-2xl border border-slate-800/80 shadow-lg relative overflow-hidden group">
+                <div class="absolute -right-4 -bottom-4 opacity-10 group-hover:opacity-20 transition text-emerald-500">
+                    <i class="fa-solid fa-[#10b981] fa-user-check text-7xl"></i>
+                </div>
+                <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Inscrições Abertas</div>
+                <div class="text-3xl font-extrabold text-emerald-400" id="statOpenEvents">0</div>
+                <div class="text-[11px] text-emerald-500/80 mt-2 flex items-center gap-1">
+                    <i class="fa-solid fa-circle-play text-xs"></i> Prontos para Acredito
+                </div>
+            </div>
+
+            <div class="glass-panel p-5 rounded-2xl border border-slate-800/80 shadow-lg relative overflow-hidden group">
+                <div class="absolute -right-4 -bottom-4 opacity-10 group-hover:opacity-20 transition text-amber-500">
+                    <i class="fa-solid fa-truck-ramp-box text-7xl"></i>
+                </div>
+                <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Logística & SCM</div>
+                <div class="text-3xl font-extrabold text-amber-400" id="statLogisticsEvents">0</div>
+                <div class="text-[11px] text-amber-500/80 mt-2 flex items-center gap-1">
+                    <i class="fa-solid fa-warehouse text-xs"></i> Foco Bertolini BSA
+                </div>
+            </div>
+
+            <div class="glass-panel p-5 rounded-2xl border border-slate-800/80 shadow-lg relative overflow-hidden group">
+                <div class="absolute -right-4 -bottom-4 opacity-10 group-hover:opacity-20 transition text-blue-500">
+                    <i class="fa-solid fa-map-location-dot text-7xl"></i>
+                </div>
+                <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Região Sul (RS/SC)</div>
+                <div class="text-3xl font-extrabold text-blue-400" id="statSulEvents">0</div>
+                <div class="text-[11px] text-blue-400/80 mt-2 flex items-center gap-1">
+                    <i class="fa-solid fa-location-dot text-xs"></i> Presença Regional
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTROLS & FILTER BAR -->
+        <div class="glass-panel p-5 rounded-2xl mb-8 border border-slate-800/80 shadow-xl">
+            <div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
+                
+                <!-- SEARCH INPUT -->
+                <div class="relative w-full lg:w-96">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar por nome, palavra-chave ou cidade..." 
+                           class="w-full pl-11 pr-4 py-2.5 bg-slate-900/90 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition">
+                </div>
+
+                <!-- CATEGORY & LOCATION FILTERS -->
+                <div class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
+                    <!-- DOMAIN CATEGORY -->
+                    <select id="categoryFilter" class="bg-slate-900/90 border border-slate-800 text-xs text-slate-200 rounded-xl px-3 py-2.5 focus:outline-none focus:border-red-600 transition">
+                        <option value="ALL">Todas as Categorias</option>
+                        <option value="Logística & SCM">Logística & SCM</option>
+                        <option value="Automação & Robotica">Automação & Robótica</option>
+                        <option value="Tecnologia & TI">Tecnologia & TI</option>
+                        <option value="Indústria 4.0">Indústria 4.0</option>
+                    </select>
+
+                    <!-- LOCATION -->
+                    <select id="locationFilter" class="bg-slate-900/90 border border-slate-800 text-xs text-slate-200 rounded-xl px-3 py-2.5 focus:outline-none focus:border-red-600 transition">
+                        <option value="ALL">Todas as Localizações</option>
+                        <option value="RS">Rio Grande do Sul (RS)</option>
+                        <option value="SC">Santa Catarina (SC)</option>
+                        <option value="SP">São Paulo (SP)</option>
+                        <option value="BR">Outros Estados (Brasil)</option>
+                        <option value="INT">Internacional</option>
+                    </select>
+
+                    <!-- STATUS -->
+                    <select id="statusFilter" class="bg-slate-900/90 border border-slate-800 text-xs text-slate-200 rounded-xl px-3 py-2.5 focus:outline-none focus:border-red-600 transition">
+                        <option value="ALL">Todos os Status</option>
+                        <option value="Inscrições Abertas">Inscrições Abertas</option>
+                        <option value="Confirmado">Confirmado</option>
+                        <option value="Em breve">Em breve</option>
+                    </select>
+
+                    <!-- ACTION BUTTONS -->
+                    <div class="flex items-center gap-2 ml-auto lg:ml-0">
+                        <button id="openAddModalBtn" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center gap-2 shadow-lg shadow-red-900/20">
+                            <i class="fa-solid fa-plus"></i> Novo Evento
+                        </button>
+                        <button id="exportCalendarBtn" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-2.5 rounded-xl text-xs font-semibold transition flex items-center gap-2" title="Exportar Lista">
+                            <i class="fa-solid fa-file-export"></i> Exportar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EVENT CARDS GRID -->
+        <div id="eventsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Dynamic Content populated via JavaScript -->
+        </div>
+
+        <!-- EMPTY STATE -->
+        <div id="emptyState" class="hidden text-center py-16 glass-panel rounded-2xl border border-slate-800/80 mt-4">
+            <i class="fa-solid fa-calendar-xmark text-5xl text-slate-600 mb-4"></i>
+            <h3 class="text-lg font-bold text-slate-300">Nenhum evento encontrado</h3>
+            <p class="text-sm text-slate-500 mt-1">Tente ajustar os filtros de pesquisa ou categoria acima.</p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full bg-[#070a0f] border-t border-slate-900 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+            <div class="flex items-center gap-3">
+                <img src="https://www.bertoliniarmazenagem.com.br/wp-content/uploads/2024/11/bertolini-logo-claro.svg" 
+                     alt="Bertolini Logo" 
+                     class="h-6 w-auto opacity-70">
+                <span>&copy; 2026 Bertolini BSA - Radar Executivo de Inteligência Estratégica.</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <span class="hover:text-slate-400 transition cursor-pointer">Termos & Privacidade</span>
+                <span class="hover:text-slate-400 transition cursor-pointer">Painel sysINFO</span>
+                <span class="text-slate-600">v3.4.0 Live Engine</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- EVENT DETAILS MODAL -->
+    <div id="detailModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-panel border border-slate-700 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden relative animate-in fade-in zoom-in duration-200">
+            <div class="p-6 border-b border-slate-800 flex justify-between items-start bg-slate-900/60">
+                <div class="pr-6">
+                    <span id="modalCategory" class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-red-900/40 text-red-400 border border-red-800/50">
+                        Categoria
+                    </span>
+                    <h2 id="modalTitle" class="text-xl font-extrabold text-white mt-2">Nome do Evento</h2>
+                    <p id="modalOrganizer" class="text-xs text-slate-400 mt-1">Organizado por sysINFO Tech</p>
+                </div>
+                <button id="closeDetailModal" class="text-slate-400 hover:text-white p-2 rounded-lg bg-slate-800/80 transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            
+            <div class="p-6 space-y-4 text-sm text-slate-300">
+                <div class="grid grid-cols-2 gap-4 bg-slate-900/80 p-4 rounded-xl border border-slate-800/80">
+                    <div>
+                        <span class="text-xs font-semibold text-slate-500 uppercase block">Data & Horário</span>
+                        <strong id="modalDate" class="text-white">15 a 18 de Maio, 2026</strong>
+                    </div>
+                    <div>
+                        <span class="text-xs font-semibold text-slate-500 uppercase block">Localização</span>
+                        <strong id="modalLocation" class="text-white">Bento Gonçalves - RS</strong>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Sobre o Evento</h4>
+                    <p id="modalDescription" class="text-slate-300 leading-relaxed text-xs sm:text-sm">
+                        Descrição do evento e tópicos abordados sobre automação, armazenagem de alta densidade e intralogística.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Destaques Bertolini BSA</h4>
+                    <ul class="text-xs space-y-1.5 text-slate-400 list-disc list-inside">
+                        <li>Sistemas de Transelevadores e Movimentação Automática</li>
+                        <li>Estruturas Porta-Paletes e Armazenamento Verticalizado</li>
+                        <li>Softwares WMS/WCS Integrados à Indústria 4.0</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="p-6 border-t border-slate-800 bg-slate-900/40 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span id="modalBadge" class="text-xs font-semibold px-3 py-1 rounded-full">Status</span>
+                </div>
+                <a id="modalLink" href="#" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-lg shadow-red-900/30">
+                    Acessar Site Oficial <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD CUSTOM EVENT MODAL -->
+    <div id="addModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-panel border border-slate-700 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden relative">
+            <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/60">
+                <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-calendar-plus text-red-500"></i> Adicionar Evento à Agenda
+                </h2>
+                <button id="closeAddModal" class="text-slate-400 hover:text-white p-2 rounded-lg bg-slate-800/80 transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            
+            <form id="addEventForm" class="p-6 space-y-4 text-xs">
+                <div>
+                    <label class="block font-bold text-slate-300 mb-1">Nome do Evento *</label>
+                    <input type="text" id="addTitle" required placeholder="Ex: Congrelog RS 2026" 
+                           class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-red-600">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-slate-300 mb-1">Categoria *</label>
+                        <select id="addCategory" required class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-red-600">
+                            <option value="Logística & SCM">Logística & SCM</option>
+                            <option value="Automação & Robotica">Automação & Robótica</option>
+                            <option value="Tecnologia & TI">Tecnologia & TI</option>
+                            <option value="Indústria 4.0">Indústria 4.0</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-300 mb-1">Região/UF *</label>
+                        <select id="addRegion" required class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-red-600">
+                            <option value="RS">Rio Grande do Sul (RS)</option>
+                            <option value="SC">Santa Catarina (SC)</option>
+                            <option value="SP">São Paulo (SP)</option>
+                            <option value="BR">Outro Estado (BR)</option>
+                            <option value="INT">Internacional</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-slate-300 mb-1">Data / Período *</label>
+                        <input type="text" id="addDate" required placeholder="Ex: 22-25 Outubro 2026" 
+                               class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-red-600">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-300 mb-1">Status *</label>
+                        <select id="addStatus" required class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-red-600">
+                            <option value="Inscrições Abertas">Inscrições Abertas</option>
+                            <option value="Confirmado">Confirmado</option>
+                            <option value="Em breve">Em breve</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-slate-300 mb-1">Cidade / Local *</label>
+                    <input type="text" id="addLocation" required placeholder="Ex: Bento Gonçalves - RS" 
+                           class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-red-600">
+                </div>
+
+                <div>
+                    <label class="block font-bold text-slate-300 mb-1">Descrição Breve</label>
+                    <textarea id="addDescription" rows="3" placeholder="Insira detalhes e relevância para o setor..." 
+                              class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-red-600"></textarea>
+                </div>
+
+                <div class="pt-2 flex justify-end gap-2">
+                    <button type="button" id="cancelAddBtn" class="bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl transition">Cancelar</button>
+                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold px-5 py-2 rounded-xl transition shadow-lg shadow-red-900/30">Salvar Evento</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // INITIAL PRE-POPULATED REALISTIC EVENTS DATA
+        let eventsData = [
+            {
+                id: '1',
+                title: 'IntraLog - Feira de Intralogística e Logística Reversa',
+                category: 'Logística & SCM',
+                region: 'SP',
+                location: 'São Paulo - SP (Expo Center Norte)',
+                date: '12 a 14 de Maio, 2026',
+                status: 'Inscrições Abertas',
+                organizer: 'IntraLog Brasil / sysINFO',
+                description: 'Principal ponto de encontro para soluções em automação de armazéns, estruturas porta-paletes de alta densidade e tecnologias de movimentação interna de cargas.',
+                link: 'https://www.intralogshow.com.br'
+            },
+            {
+                id: '2',
+                title: 'Mercopar - Feira de Inovação Industrial',
+                category: 'Indústria 4.0',
+                region: 'RS',
+                location: 'Caxias do Sul - RS (Pavilhões da Festa da Uva)',
+                date: '13 a 16 de Outubro, 2026',
+                status: 'Confirmado',
+                organizer: 'Sebrae RS / Fiergs',
+                description: 'Maior feira de subcontratação e inovação industrial da América Latina. Foco em soluções de armazenamento inteligente e automação Fabril no Sul do Brasil.',
+                link: 'https://mercopar.com.br'
+            },
+            {
+                id: '3',
+                title: 'Movimat - Salão Internacional da Logística Integrada',
+                category: 'Logística & SCM',
+                region: 'SP',
+                location: 'São Paulo - SP (São Paulo Expo)',
+                date: '08 a 12 de Novembro, 2026',
+                status: 'Inscrições Abertas',
+                organizer: 'RX Global',
+                description: 'Evento referência focado em otimização de Supply Chain, empilhadeiras automáticas, sistemas WMS e estruturas para grandes centros de distribuição.',
+                link: 'https://www.fenatran.com.br/movimat'
+            },
+            {
+                id: '4',
+                title: 'Expo Logística SC & Conecta Supply Chain',
+                category: 'Logística & SCM',
+                region: 'SC',
+                location: 'Joinville - SC (Expoville)',
+                date: '22 a 24 de Julho, 2026',
+                status: 'Inscrições Abertas',
+                organizer: 'SC Expo Logística',
+                description: 'Encontro estratégico das empresas do corredor logístico catarinense, reunindo executivos de transporte, armazenagem e tecnologia industrial.',
+                link: 'https://expologisticasc.com.br'
+            },
+            {
+                id: '5',
+                title: 'Brasil Automation & Robótica Hub',
+                category: 'Automação & Robotica',
+                region: 'SP',
+                location: 'Campinas - SP (Royal Palm)',
+                date: '18 a 20 de Agosto, 2026',
+                status: 'Em breve',
+                organizer: 'ISA Seção Brasil',
+                description: 'Congresso focado em braços robóticos, esteiras inteligentes, sensores IoT e veículos autônomos AGV/AMR aplicados a centros logísticos.',
+                link: 'https://isabrasil.org.br'
+            },
+            {
+                id: '6',
+                title: 'Futurecom - Transformação Digital e Telecom',
+                category: 'Tecnologia & TI',
+                region: 'SP',
+                location: 'São Paulo - SP (São Paulo Expo)',
+                date: '06 a 08 de Outubro, 2026',
+                status: 'Confirmado',
+                organizer: 'Informa Markets',
+                description: 'O maior evento de conectividade, redes 5G privativas para indústrias e sistemas de nuvem aplicados à logística inteligente.',
+                link: 'https://www.futurecom.com.br'
+            },
+            {
+                id: '7',
+                title: 'FIMEC - Feira Internacional de Couros, Produtos e Máquinas',
+                category: 'Indústria 4.0',
+                region: 'RS',
+                location: 'Novo Hamburgo - RS (Fenac)',
+                date: '10 a 12 de Março, 2026',
+                status: 'Confirmado',
+                organizer: 'Fenac Experiências',
+                description: 'Apresentação de processos automatizados, esteiras de movimentação e estruturas de estocagem para o polo industrial calçadista e manufatura.',
+                link: 'https://www.fimec.com.br'
+            }
+        ];
+
+        // STATE MANAGERS
+        let timerSeconds = 30;
+        let isAutoRefreshActive = true;
+        let countdownInterval = null;
+
+        // DOM ELEMENTS
+        const eventsGrid = document.getElementById('eventsGrid');
+        const emptyState = document.getElementById('emptyState');
+        const searchInput = document.getElementById('searchInput');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const locationFilter = document.getElementById('locationFilter');
+        const statusFilter = document.getElementById('statusFilter');
+        const timerCountdown = document.getElementById('timerCountdown');
+        const toggleAutoRefresh = document.getElementById('toggleAutoRefresh');
+        const manualRefreshBtn = document.getElementById('manualRefreshBtn');
+        
+        // COUNTERS DOM
+        const statTotalEvents = document.getElementById('statTotalEvents');
+        const statOpenEvents = document.getElementById('statOpenEvents');
+        const statLogisticsEvents = document.getElementById('statLogisticsEvents');
+        const statSulEvents = document.getElementById('statSulEvents');
+
+        // MODAL DOM
+        const detailModal = document.getElementById('detailModal');
+        const closeDetailModal = document.getElementById('closeDetailModal');
+        const addModal = document.getElementById('addModal');
+        const openAddModalBtn = document.getElementById('openAddModalBtn');
+        const closeAddModal = document.getElementById('closeAddModal');
+        const cancelAddBtn = document.getElementById('cancelAddBtn');
+        const addEventForm = document.getElementById('addEventForm');
+        const exportCalendarBtn = document.getElementById('exportCalendarBtn');
+
+        // INITIALIZATION
+        document.addEventListener('DOMContentLoaded', () => {
+            renderEvents();
+            startCountdown();
+            setupEventListeners();
+        });
+
+        // RENDER EVENTS
+        function renderEvents() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            const selectedCategory = categoryFilter.value;
+            const selectedLocation = locationFilter.value;
+            const selectedStatus = statusFilter.value;
+
+            const filtered = eventsData.filter(evt => {
+                const matchesSearch = evt.title.toLowerCase().includes(searchTerm) || 
+                                      evt.location.toLowerCase().includes(searchTerm) ||
+                                      evt.description.toLowerCase().includes(searchTerm);
+                
+                const matchesCategory = selectedCategory === 'ALL' || evt.category === selectedCategory;
+                const matchesLocation = selectedLocation === 'ALL' || evt.region === selectedLocation;
+                const matchesStatus = selectedStatus === 'ALL' || evt.status === selectedStatus;
+
+                return matchesSearch && matchesCategory && matchesLocation && matchesStatus;
+            });
+
+            // Update Counters
+            updateStats();
+
+            // Clear Grid
+            eventsGrid.innerHTML = '';
+
+            if (filtered.length === 0) {
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+                filtered.forEach(evt => {
+                    eventsGrid.appendChild(createEventCard(evt));
+                });
+            }
+        }
+
+        // CREATE EVENT CARD HTML ELEMENT
+        function createEventCard(evt) {
+            const card = document.createElement('div');
+            card.className = 'glass-panel rounded-2xl p-5 border border-slate-800/80 hover:border-slate-700 transition duration-300 flex flex-col justify-between group shadow-lg';
+
+            // Status Badge Theme
+            let badgeClass = 'bg-slate-800 text-slate-300 border-slate-700';
+            if (evt.status === 'Inscrições Abertas') {
+                badgeClass = 'bg-emerald-950/80 text-emerald-400 border-emerald-800/60';
+            } else if (evt.status === 'Confirmado') {
+                badgeClass = 'bg-blue-950/80 text-blue-400 border-blue-800/60';
+            } else if (evt.status === 'Em breve') {
+                badgeClass = 'bg-amber-950/80 text-amber-400 border-amber-800/60';
+            }
+
+            // Region Color Tag
+            let regionColor = 'text-slate-400 bg-slate-900';
+            if (evt.region === 'RS' || evt.region === 'SC') {
+                regionColor = 'text-red-400 bg-red-950/50 border border-red-900/40';
+            }
+
+            card.innerHTML = `
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${regionColor}">
+                            <i class="fa-solid fa-location-dot mr-1"></i>${evt.region}
+                        </span>
+                        <span class="text-[10px] font-semibold px-2.5 py-1 rounded-full border ${badgeClass}">
+                            ${evt.status}
+                        </span>
+                    </div>
+
+                    <h3 class="font-extrabold text-white text-base group-hover:text-red-400 transition duration-200 line-clamp-2">
+                        ${evt.title}
+                    </h3>
+                    
+                    <div class="mt-3 space-y-1.5 text-xs text-slate-400">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-regular fa-calendar text-red-500 w-4"></i>
+                            <span class="font-medium text-slate-300">${evt.date}</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-map-pin text-slate-500 w-4"></i>
+                            <span class="truncate">${evt.location}</span>
+                        </div>
+                    </div>
+
+                    <p class="mt-3 text-xs text-slate-400/90 line-clamp-3 leading-relaxed">
+                        ${evt.description}
+                    </p>
+                </div>
+
+                <div class="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                    <span class="text-[11px] font-medium text-slate-500 uppercase">${evt.category}</span>
+                    <button onclick="openDetailModalHandler('${evt.id}')" class="text-xs font-bold text-slate-200 hover:text-red-400 transition flex items-center gap-1.5">
+                        Detalhes <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </button>
+                </div>
+            `;
+            return card;
+        }
+
+        // UPDATE METRIC COUNTERS
+        function updateStats() {
+            statTotalEvents.textContent = eventsData.length;
+            statOpenEvents.textContent = eventsData.filter(e => e.status === 'Inscrições Abertas').length;
+            statLogisticsEvents.textContent = eventsData.filter(e => e.category === 'Logística & SCM').length;
+            statSulEvents.textContent = eventsData.filter(e => e.region === 'RS' || e.region === 'SC').length;
+        }
+
+        // EVENT DETAIL MODAL OPEN
+        window.openDetailModalHandler = function(eventId) {
+            const evt = eventsData.find(e => e.id === eventId);
+            if (!evt) return;
+
+            document.getElementById('modalTitle').textContent = evt.title;
+            document.getElementById('modalCategory').textContent = evt.category;
+            document.getElementById('modalOrganizer').textContent = `Fonte: ${evt.organizer || 'sysINFO Sync'}`;
+            document.getElementById('modalDate').textContent = evt.date;
+            document.getElementById('modalLocation').textContent = evt.location;
+            document.getElementById('modalDescription').textContent = evt.description;
+            document.getElementById('modalLink').href = evt.link || '#';
+
+            const badge = document.getElementById('modalBadge');
+            badge.textContent = evt.status;
+            badge.className = 'text-xs font-semibold px-3 py-1 rounded-full border ';
+            if (evt.status === 'Inscrições Abertas') {
+                badge.className += 'bg-emerald-950 text-emerald-400 border-emerald-800';
+            } else {
+                badge.className += 'bg-blue-950 text-blue-400 border-blue-800';
+            }
+
+            detailModal.classList.remove('hidden');
+        };
+
+        // AUTO REFRESH SIMULATION TIMER
+        function startCountdown() {
+            clearInterval(countdownInterval);
+            countdownInterval = setInterval(() => {
+                if (!isAutoRefreshActive) return;
+
+                timerSeconds--;
+                timerCountdown.textContent = `${timerSeconds}s`;
+
+                if (timerSeconds <= 0) {
+                    timerSeconds = 30;
+                    simulateLiveSync();
+                }
+            }, 1000);
+        }
+
+        function simulateLiveSync() {
+            // Flash indicator
+            manualRefreshBtn.classList.add('animate-spin');
+            setTimeout(() => {
+                manualRefreshBtn.classList.remove('animate-spin');
+                renderEvents();
+            }, 800);
+        }
+
+        // EVENT LISTENERS SETUP
+        function setupEventListeners() {
+            // Filter Inputs
+            searchInput.addEventListener('input', renderEvents);
+            categoryFilter.addEventListener('change', renderEvents);
+            locationFilter.addEventListener('change', renderEvents);
+            statusFilter.addEventListener('change', renderEvents);
+
+            // Timer Controls
+            toggleAutoRefresh.addEventListener('click', () => {
+                isAutoRefreshActive = !isAutoRefreshActive;
+                toggleAutoRefresh.textContent = isAutoRefreshActive ? 'Pausar' : 'Retomar';
+                toggleAutoRefresh.classList.toggle('bg-red-900/60');
+            });
+
+            manualRefreshBtn.addEventListener('click', () => {
+                timerSeconds = 30;
+                timerCountdown.textContent = '30s';
+                simulateLiveSync();
+            });
+
+            // Modals Close
+            closeDetailModal.addEventListener('click', () => detailModal.classList.add('hidden'));
+            closeAddModal.addEventListener('click', () => addModal.classList.add('hidden'));
+            cancelAddBtn.addEventListener('click', () => addModal.classList.add('hidden'));
+            openAddModalBtn.addEventListener('click', () => addModal.classList.remove('hidden'));
+
+            // Close modal when clicking outside box
+            window.addEventListener('click', (e) => {
+                if (e.target === detailModal) detailModal.classList.add('hidden');
+                if (e.target === addModal) addModal.classList.add('hidden');
+            });
+
+            // Add Custom Event Form Submit
+            addEventForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const newEvt = {
+                    id: Date.now().toString(),
+                    title: document.getElementById('addTitle').value,
+                    category: document.getElementById('addCategory').value,
+                    region: document.getElementById('addRegion').value,
+                    date: document.getElementById('addDate').value,
+                    status: document.getElementById('addStatus').value,
+                    location: document.getElementById('addLocation').value,
+                    description: document.getElementById('addDescription').value || 'Sem descrição informada.',
+                    organizer: 'Cadastrado Manualmente',
+                    link: '#'
+                };
+
+                eventsData.unshift(newEvt);
+                renderEvents();
+                addEventForm.reset();
+                addModal.classList.add('hidden');
+            });
+
+            // Export List to CSV/Summary
+            exportCalendarBtn.addEventListener('click', () => {
+                let csvContent = "data:text/csv;charset=utf-8,ID,Titulo,Categoria,Regiao,Data,Status,Local\n";
+                eventsData.forEach(e => {
+                    csvContent += `"${e.id}","${e.title}","${e.category}","${e.region}","${e.date}","${e.status}","${e.location}"\n`;
+                });
+                const encodedUri = encodeURI(csvContent);
+                const link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "Agenda_Tech_Bertolini_BSA.csv");
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+        }
+    </script>
+</body>
+</html>
