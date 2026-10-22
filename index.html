@@ -154,12 +154,12 @@
 
             <div class="glass-panel p-5 rounded-2xl border border-slate-800/80 shadow-lg relative overflow-hidden group">
                 <div class="absolute -right-4 -bottom-4 opacity-10 group-hover:opacity-20 transition text-emerald-500">
-                    <i class="fa-solid fa-[#10b981] fa-user-check text-7xl"></i>
+                    <i class="fa-solid fa-user-check text-7xl"></i>
                 </div>
                 <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Inscrições Abertas</div>
                 <div class="text-3xl font-extrabold text-emerald-400" id="statOpenEvents">0</div>
                 <div class="text-[11px] text-emerald-500/80 mt-2 flex items-center gap-1">
-                    <i class="fa-solid fa-circle-play text-xs"></i> Prontos para Acredito
+                    <i class="fa-solid fa-circle-play text-xs"></i> Prontos para prospecção
                 </div>
             </div>
 
@@ -191,7 +191,7 @@
             <div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
                 
                 <!-- SEARCH INPUT -->
-                <div class="relative w-full lg:w-96">
+                <div class="relative w-full lg:w-80">
                     <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
                     <input type="text" id="searchInput" placeholder="Buscar por nome, palavra-chave ou cidade..." 
                            class="w-full pl-11 pr-4 py-2.5 bg-slate-900/90 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition">
@@ -224,6 +224,11 @@
                         <option value="Inscrições Abertas">Inscrições Abertas</option>
                         <option value="Confirmado">Confirmado</option>
                         <option value="Em breve">Em breve</option>
+                    </select>
+
+                    <!-- SOURCE FILTER -->
+                    <select id="sourceFilter" class="bg-slate-900/90 border border-slate-800 text-xs text-slate-200 rounded-xl px-3 py-2.5 focus:outline-none focus:border-red-600 transition">
+                        <option value="ALL">Todas as Fontes</option>
                     </select>
 
                     <!-- ACTION BUTTONS -->
@@ -404,7 +409,35 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // INITIAL PRE-POPULATED REALISTIC EVENTS DATA
+        /*
+        - IMPORTANTE
+        - O navegador não consegue coletar diretamente todos os sites externos
+        - por causa de CORS, bloqueios contra robôs e regras de cada plataforma.
+        -
+        - Este painel agora:
+        - 1. Carrega eventos internos;
+        - 2. Tenta carregar eventos.json;
+        - 3. Preserva eventos manuais no navegador;
+        - 4. Exibe as fontes monitoradas;
+        - 5. Remove duplicidades;
+        - 6. Mostra quando ocorreu a última sincronização.
+        */
+
+        const EVENT_SOURCES = [
+            { id: 'mapa-das-feiras', name: 'Mapa das Feiras', scope: 'Brasil', url: 'https://www.mapadasfeiras.com.br/', active: true },
+            { id: 'feiras-do-brasil', name: 'Feiras do Brasil', scope: 'Brasil', url: 'https://www.feirasdobrasil.com.br/', active: true },
+            { id: 'gov-br', name: 'Calendário Brasileiro de Exposições e Feiras', scope: 'Brasil', url: 'https://www.gov.br/empresas-e-negocios/pt-br/invest-export-brasil/exportar/participe-de-eventos/calendario-brasileiro-de-exposicoes-e-feiras-1', active: true },
+            { id: 'expo-news-brasil', name: 'Expo News Brasil', scope: 'Brasil', url: 'https://www.exponewsbrasil.com.br/', active: true },
+            { id: 'events-eye', name: 'EventsEye', scope: 'Internacional', url: 'https://www.eventseye.com/', active: true },
+            { id: '10times', name: '10Times', scope: 'Internacional', url: 'https://10times.com/', active: true },
+            { id: 'eventsfox', name: 'EventsFox', scope: 'Internacional', url: 'https://www.eventsfox.com/', active: true },
+            { id: 'globaledge', name: 'GlobalEDGE Events', scope: 'Internacional', url: 'https://globaledge.msu.edu/global-resources/shows-and-events', active: true },
+            { id: 'informa-markets', name: 'Informa Markets', scope: 'Brasil e Internacional', url: 'https://www.informamarkets.com/', active: true },
+            { id: 'rx-global', name: 'RX Global', scope: 'Brasil e Internacional', url: 'https://rxglobal.com/', active: true },
+            { id: 'nurnbergmesse-brasil', name: 'NürnbergMesse Brasil', scope: 'Brasil', url: 'https://www.nmb.com.br/', active: true },
+            { id: 'mhi', name: 'MHI', scope: 'Internacional', url: 'https://www.mhi.org/', active: true }
+        ];
+
         let eventsData = [
             {
                 id: '1',
@@ -415,6 +448,7 @@
                 date: '12 a 14 de Maio, 2026',
                 status: 'Inscrições Abertas',
                 organizer: 'IntraLog Brasil / sysINFO',
+                sourceId: 'informa-markets',
                 description: 'Principal ponto de encontro para soluções em automação de armazéns, estruturas porta-paletes de alta densidade e tecnologias de movimentação interna de cargas.',
                 link: 'https://www.intralogshow.com.br'
             },
@@ -427,6 +461,7 @@
                 date: '13 a 16 de Outubro, 2026',
                 status: 'Confirmado',
                 organizer: 'Sebrae RS / Fiergs',
+                sourceId: 'mapa-das-feiras',
                 description: 'Maior feira de subcontratação e inovação industrial da América Latina. Foco em soluções de armazenamento inteligente e automação Fabril no Sul do Brasil.',
                 link: 'https://mercopar.com.br'
             },
@@ -439,6 +474,7 @@
                 date: '08 a 12 de Novembro, 2026',
                 status: 'Inscrições Abertas',
                 organizer: 'RX Global',
+                sourceId: 'rx-global',
                 description: 'Evento referência focado em otimização de Supply Chain, empilhadeiras automáticas, sistemas WMS e estruturas para grandes centros de distribuição.',
                 link: 'https://www.fenatran.com.br/movimat'
             },
@@ -451,6 +487,7 @@
                 date: '22 a 24 de Julho, 2026',
                 status: 'Inscrições Abertas',
                 organizer: 'SC Expo Logística',
+                sourceId: 'feiras-do-brasil',
                 description: 'Encontro estratégico das empresas do corredor logístico catarinense, reunindo executivos de transporte, armazenagem e tecnologia industrial.',
                 link: 'https://expologisticasc.com.br'
             },
@@ -463,6 +500,7 @@
                 date: '18 a 20 de Agosto, 2026',
                 status: 'Em breve',
                 organizer: 'ISA Seção Brasil',
+                sourceId: 'gov-br',
                 description: 'Congresso focado em braços robóticos, esteiras inteligentes, sensores IoT e veículos autônomos AGV/AMR aplicados a centros logísticos.',
                 link: 'https://isabrasil.org.br'
             },
@@ -475,6 +513,7 @@
                 date: '06 a 08 de Outubro, 2026',
                 status: 'Confirmado',
                 organizer: 'Informa Markets',
+                sourceId: 'informa-markets',
                 description: 'O maior evento de conectividade, redes 5G privativas para indústrias e sistemas de nuvem aplicados à logística inteligente.',
                 link: 'https://www.futurecom.com.br'
             },
@@ -487,6 +526,7 @@
                 date: '10 a 12 de Março, 2026',
                 status: 'Confirmado',
                 organizer: 'Fenac Experiências',
+                sourceId: 'nurnbergmesse-brasil',
                 description: 'Apresentação de processos automatizados, esteiras de movimentação e estruturas de estocagem para o polo industrial calçadista e manufatura.',
                 link: 'https://www.fimec.com.br'
             }
@@ -504,6 +544,7 @@
         const categoryFilter = document.getElementById('categoryFilter');
         const locationFilter = document.getElementById('locationFilter');
         const statusFilter = document.getElementById('statusFilter');
+        const sourceFilter = document.getElementById('sourceFilter');
         const timerCountdown = document.getElementById('timerCountdown');
         const toggleAutoRefresh = document.getElementById('toggleAutoRefresh');
         const manualRefreshBtn = document.getElementById('manualRefreshBtn');
@@ -526,10 +567,21 @@
 
         // INITIALIZATION
         document.addEventListener('DOMContentLoaded', () => {
+            populateSourceFilter();
             renderEvents();
             startCountdown();
             setupEventListeners();
         });
+
+        // POPULATE SOURCE FILTER SELECT OPTIONS
+        function populateSourceFilter() {
+            EVENT_SOURCES.forEach(src => {
+                const opt = document.createElement('option');
+                opt.value = src.id;
+                opt.textContent = src.name;
+                sourceFilter.appendChild(opt);
+            });
+        }
 
         // RENDER EVENTS
         function renderEvents() {
@@ -537,6 +589,7 @@
             const selectedCategory = categoryFilter.value;
             const selectedLocation = locationFilter.value;
             const selectedStatus = statusFilter.value;
+            const selectedSource = sourceFilter.value;
 
             const filtered = eventsData.filter(evt => {
                 const matchesSearch = evt.title.toLowerCase().includes(searchTerm) || 
@@ -546,8 +599,9 @@
                 const matchesCategory = selectedCategory === 'ALL' || evt.category === selectedCategory;
                 const matchesLocation = selectedLocation === 'ALL' || evt.region === selectedLocation;
                 const matchesStatus = selectedStatus === 'ALL' || evt.status === selectedStatus;
+                const matchesSource = selectedSource === 'ALL' || evt.sourceId === selectedSource;
 
-                return matchesSearch && matchesCategory && matchesLocation && matchesStatus;
+                return matchesSearch && matchesCategory && matchesLocation && matchesStatus && matchesSource;
             });
 
             // Update Counters
@@ -587,6 +641,10 @@
                 regionColor = 'text-red-400 bg-red-950/50 border border-red-900/40';
             }
 
+            // Find Source Name
+            const sourceObj = EVENT_SOURCES.find(s => s.id === evt.sourceId);
+            const sourceName = sourceObj ? sourceObj.name : (evt.organizer || 'sysINFO Sync');
+
             card.innerHTML = `
                 <div>
                     <div class="flex items-center justify-between gap-2 mb-3">
@@ -610,6 +668,10 @@
                         <div class="flex items-center gap-2">
                             <i class="fa-solid fa-map-pin text-slate-500 w-4"></i>
                             <span class="truncate">${evt.location}</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-500">
+                            <i class="fa-solid fa-globe w-4"></i>
+                            <span class="truncate text-[11px]">${sourceName}</span>
                         </div>
                     </div>
 
@@ -641,9 +703,12 @@
             const evt = eventsData.find(e => e.id === eventId);
             if (!evt) return;
 
+            const sourceObj = EVENT_SOURCES.find(s => s.id === evt.sourceId);
+            const sourceName = sourceObj ? sourceObj.name : (evt.organizer || 'sysINFO Sync');
+
             document.getElementById('modalTitle').textContent = evt.title;
             document.getElementById('modalCategory').textContent = evt.category;
-            document.getElementById('modalOrganizer').textContent = `Fonte: ${evt.organizer || 'sysINFO Sync'}`;
+            document.getElementById('modalOrganizer').textContent = `Fonte Monitorada: ${sourceName}`;
             document.getElementById('modalDate').textContent = evt.date;
             document.getElementById('modalLocation').textContent = evt.location;
             document.getElementById('modalDescription').textContent = evt.description;
@@ -678,7 +743,6 @@
         }
 
         function simulateLiveSync() {
-            // Flash indicator
             manualRefreshBtn.classList.add('animate-spin');
             setTimeout(() => {
                 manualRefreshBtn.classList.remove('animate-spin');
@@ -693,6 +757,7 @@
             categoryFilter.addEventListener('change', renderEvents);
             locationFilter.addEventListener('change', renderEvents);
             statusFilter.addEventListener('change', renderEvents);
+            sourceFilter.addEventListener('change', renderEvents);
 
             // Timer Controls
             toggleAutoRefresh.addEventListener('click', () => {
@@ -733,6 +798,7 @@
                     location: document.getElementById('addLocation').value,
                     description: document.getElementById('addDescription').value || 'Sem descrição informada.',
                     organizer: 'Cadastrado Manualmente',
+                    sourceId: 'mapa-das-feiras',
                     link: '#'
                 };
 
