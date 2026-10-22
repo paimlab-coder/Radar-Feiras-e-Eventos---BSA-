@@ -113,7 +113,7 @@
                         <h1 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight flex items-center gap-2">
                             Agenda Tech <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-red-900/40 text-red-400 border border-red-700/50">sysINFO Sync</span>
                         </h1>
-                        <p class="text-xs text-slate-400">Feiras, Congressos e Eventos Estratégicos de Tecnologia & Logística</p>
+                        <p class="text-xs text-slate-400">Feiras, Congressos e Eventos Estratégicos por Ordem de Proximidade</p>
                     </div>
                 </div>
 
@@ -191,26 +191,32 @@
             <div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
                 
                 <!-- SEARCH INPUT -->
-                <div class="relative w-full lg:w-80">
+                <div class="relative w-full lg:w-72">
                     <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                    <input type="text" id="searchInput" placeholder="Buscar por nome, palavra-chave ou cidade..." 
+                    <input type="text" id="searchInput" placeholder="Buscar evento, cidade, produto..." 
                            class="w-full pl-11 pr-4 py-2.5 bg-slate-900/90 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition">
                 </div>
 
                 <!-- CATEGORY & LOCATION FILTERS -->
-                <div class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
-                    <!-- DOMAIN CATEGORY -->
+                <div class="flex flex-wrap items-center gap-2.5 w-full lg:w-auto">
+                    <!-- THEMES / CATEGORIES FILTER -->
                     <select id="categoryFilter" class="bg-slate-900/90 border border-slate-800 text-xs text-slate-200 rounded-xl px-3 py-2.5 focus:outline-none focus:border-red-600 transition">
-                        <option value="ALL">Todas as Categorias</option>
-                        <option value="Logística & SCM">Logística & SCM</option>
-                        <option value="Automação & Robotica">Automação & Robótica</option>
-                        <option value="Tecnologia & TI">Tecnologia & TI</option>
-                        <option value="Indústria 4.0">Indústria 4.0</option>
+                        <option value="ALL">Todos os Temas</option>
+                        <option value="Logística">Logística</option>
+                        <option value="Supply Chain">Supply Chain</option>
+                        <option value="Intralogística">Intralogística</option>
+                        <option value="Armazenagem">Armazenagem</option>
+                        <option value="Automação Industrial">Automação Industrial</option>
+                        <option value="E-commerce">E-commerce</option>
+                        <option value="Food & Beverage">Food & Beverage</option>
+                        <option value="Agronegócio">Agronegócio</option>
+                        <option value="Pharma">Pharma</option>
+                        <option value="Tecnologia Industrial">Tecnologia Industrial</option>
                     </select>
 
                     <!-- LOCATION -->
                     <select id="locationFilter" class="bg-slate-900/90 border border-slate-800 text-xs text-slate-200 rounded-xl px-3 py-2.5 focus:outline-none focus:border-red-600 transition">
-                        <option value="ALL">Todas as Localizações</option>
+                        <option value="ALL">Todas as Regiões</option>
                         <option value="RS">Rio Grande do Sul (RS)</option>
                         <option value="SC">Santa Catarina (SC)</option>
                         <option value="SP">São Paulo (SP)</option>
@@ -269,7 +275,7 @@
             <div class="flex items-center gap-6">
                 <span class="hover:text-slate-400 transition cursor-pointer">Termos & Privacidade</span>
                 <span class="hover:text-slate-400 transition cursor-pointer">Painel sysINFO</span>
-                <span class="text-slate-600">v3.4.0 Live Engine</span>
+                <span class="text-slate-600">v3.5.0 Chrono-Sorting Live Engine</span>
             </div>
         </div>
     </footer>
@@ -351,12 +357,18 @@
 
                 <div class="grid grid-cols-2 gap-3">
                     <div>
-                        <label class="block font-bold text-slate-300 mb-1">Categoria *</label>
+                        <label class="block font-bold text-slate-300 mb-1">Tema Principal *</label>
                         <select id="addCategory" required class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-red-600">
-                            <option value="Logística & SCM">Logística & SCM</option>
-                            <option value="Automação & Robotica">Automação & Robótica</option>
-                            <option value="Tecnologia & TI">Tecnologia & TI</option>
-                            <option value="Indústria 4.0">Indústria 4.0</option>
+                            <option value="Logística">Logística</option>
+                            <option value="Supply Chain">Supply Chain</option>
+                            <option value="Intralogística">Intralogística</option>
+                            <option value="Armazenagem">Armazenagem</option>
+                            <option value="Automação Industrial">Automação Industrial</option>
+                            <option value="E-commerce">E-commerce</option>
+                            <option value="Food & Beverage">Food & Beverage</option>
+                            <option value="Agronegócio">Agronegócio</option>
+                            <option value="Pharma">Pharma</option>
+                            <option value="Tecnologia Industrial">Tecnologia Industrial</option>
                         </select>
                     </div>
                     <div>
@@ -373,10 +385,18 @@
 
                 <div class="grid grid-cols-2 gap-3">
                     <div>
-                        <label class="block font-bold text-slate-300 mb-1">Data / Período *</label>
-                        <input type="text" id="addDate" required placeholder="Ex: 22-25 Outubro 2026" 
+                        <label class="block font-bold text-slate-300 mb-1">Data Início (AAAA-MM-DD) *</label>
+                        <input type="date" id="addStartDate" required 
                                class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-red-600">
                     </div>
+                    <div>
+                        <label class="block font-bold text-slate-300 mb-1">Texto Amigável da Data *</label>
+                        <input type="text" id="addDateText" required placeholder="Ex: 10 a 12 de Março, 2026" 
+                               class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-red-600">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
                     <div>
                         <label class="block font-bold text-slate-300 mb-1">Status *</label>
                         <select id="addStatus" required class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-red-600">
@@ -385,12 +405,11 @@
                             <option value="Em breve">Em breve</option>
                         </select>
                     </div>
-                </div>
-
-                <div>
-                    <label class="block font-bold text-slate-300 mb-1">Cidade / Local *</label>
-                    <input type="text" id="addLocation" required placeholder="Ex: Bento Gonçalves - RS" 
-                           class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-red-600">
+                    <div>
+                        <label class="block font-bold text-slate-300 mb-1">Cidade / Local *</label>
+                        <input type="text" id="addLocation" required placeholder="Ex: Bento Gonçalves - RS" 
+                               class="w-full bg-slate-900 border border-slate-800 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-red-600">
+                    </div>
                 </div>
 
                 <div>
@@ -409,81 +428,125 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        /*
-        - IMPORTANTE
-        - O navegador não consegue coletar diretamente todos os sites externos
-        - por causa de CORS, bloqueios contra robôs e regras de cada plataforma.
-        -
-        - Este painel agora:
-        - 1. Carrega eventos internos;
-        - 2. Tenta carregar eventos.json;
-        - 3. Preserva eventos manuais no navegador;
-        - 4. Exibe as fontes monitoradas;
-        - 5. Remove duplicidades;
-        - 6. Mostra quando ocorreu a última sincronização.
-        */
-
         const EVENT_SOURCES = [
             { id: 'mapa-das-feiras', name: 'Mapa das Feiras', scope: 'Brasil', url: 'https://www.mapadasfeiras.com.br/', active: true },
             { id: 'feiras-do-brasil', name: 'Feiras do Brasil', scope: 'Brasil', url: 'https://www.feirasdobrasil.com.br/', active: true },
-            { id: 'gov-br', name: 'Calendário Brasileiro de Exposições e Feiras', scope: 'Brasil', url: 'https://www.gov.br/empresas-e-negocios/pt-br/invest-export-brasil/exportar/participe-de-eventos/calendario-brasileiro-de-exposicoes-e-feiras-1', active: true },
+            { id: 'gov-br', name: 'Calendário Brasileiro de Feiras', scope: 'Brasil', url: 'https://www.gov.br/', active: true },
             { id: 'expo-news-brasil', name: 'Expo News Brasil', scope: 'Brasil', url: 'https://www.exponewsbrasil.com.br/', active: true },
             { id: 'events-eye', name: 'EventsEye', scope: 'Internacional', url: 'https://www.eventseye.com/', active: true },
             { id: '10times', name: '10Times', scope: 'Internacional', url: 'https://10times.com/', active: true },
-            { id: 'eventsfox', name: 'EventsFox', scope: 'Internacional', url: 'https://www.eventsfox.com/', active: true },
-            { id: 'globaledge', name: 'GlobalEDGE Events', scope: 'Internacional', url: 'https://globaledge.msu.edu/global-resources/shows-and-events', active: true },
-            { id: 'informa-markets', name: 'Informa Markets', scope: 'Brasil e Internacional', url: 'https://www.informamarkets.com/', active: true },
-            { id: 'rx-global', name: 'RX Global', scope: 'Brasil e Internacional', url: 'https://rxglobal.com/', active: true },
-            { id: 'nurnbergmesse-brasil', name: 'NürnbergMesse Brasil', scope: 'Brasil', url: 'https://www.nmb.com.br/', active: true },
-            { id: 'mhi', name: 'MHI', scope: 'Internacional', url: 'https://www.mhi.org/', active: true }
+            { id: 'informa-markets', name: 'Informa Markets', scope: 'Global', url: 'https://www.informamarkets.com/', active: true },
+            { id: 'rx-global', name: 'RX Global', scope: 'Global', url: 'https://rxglobal.com/', active: true },
+            { id: 'mhi', name: 'MHI / MODEX / ProMat', scope: 'Internacional', url: 'https://www.mhi.org/', active: true }
         ];
 
+        // Core Event List formatted for 10 Key Verticals with ISO Start Dates for chronological sorting (nearest first)
         let eventsData = [
             {
                 id: '1',
-                title: 'IntraLog - Feira de Intralogística e Logística Reversa',
-                category: 'Logística & SCM',
-                region: 'SP',
-                location: 'São Paulo - SP (Expo Center Norte)',
-                date: '12 a 14 de Maio, 2026',
-                status: 'Inscrições Abertas',
-                organizer: 'IntraLog Brasil / sysINFO',
-                sourceId: 'informa-markets',
-                description: 'Principal ponto de encontro para soluções em automação de armazéns, estruturas porta-paletes de alta densidade e tecnologias de movimentação interna de cargas.',
-                link: 'https://www.intralogshow.com.br'
+                title: 'FIMEC - Feira Internacional de Couros, Máquinas e Componentes',
+                category: 'Tecnologia Industrial',
+                region: 'RS',
+                location: 'Novo Hamburgo - RS (Fenac)',
+                startDate: '2026-03-10',
+                date: '10 a 12 de Março, 2026',
+                status: 'Confirmado',
+                organizer: 'Fenac Experiências',
+                sourceId: 'feiras-do-brasil',
+                description: 'Apresentação de processos automatizados, esteiras de movimentação e estruturas de estocagem para o polo industrial calçadista e manufatura.',
+                link: 'https://www.fimec.com.br'
             },
             {
                 id: '2',
-                title: 'Mercopar - Feira de Inovação Industrial',
-                category: 'Indústria 4.0',
+                title: 'ExpoApres / Expodireto Cotrijal - Tecnologia Agro',
+                category: 'Agronegócio',
                 region: 'RS',
-                location: 'Caxias do Sul - RS (Pavilhões da Festa da Uva)',
-                date: '13 a 16 de Outubro, 2026',
+                location: 'Não-Me-Toque - RS',
+                startDate: '2026-03-23',
+                date: '23 a 27 de Março, 2026',
                 status: 'Confirmado',
-                organizer: 'Sebrae RS / Fiergs',
+                organizer: 'Cotrijal',
                 sourceId: 'mapa-das-feiras',
-                description: 'Maior feira de subcontratação e inovação industrial da América Latina. Foco em soluções de armazenamento inteligente e automação Fabril no Sul do Brasil.',
-                link: 'https://mercopar.com.br'
+                description: 'Uma das maiores feiras do agronegócio do Brasil, focando em armazenagem de grãos, silos automatizados e logística de escoamento agrícola.',
+                link: 'https://www.expodireto.cotrijal.com.br'
             },
             {
                 id: '3',
-                title: 'Movimat - Salão Internacional da Logística Integrada',
-                category: 'Logística & SCM',
-                region: 'SP',
-                location: 'São Paulo - SP (São Paulo Expo)',
-                date: '08 a 12 de Novembro, 2026',
+                title: 'MODEX 2026 - Manufacturing & Supply Chain Expo',
+                category: 'Supply Chain',
+                region: 'INT',
+                location: 'Atlanta - GA (EUA)',
+                startDate: '2026-04-13',
+                date: '13 a 16 de Abril, 2026',
                 status: 'Inscrições Abertas',
-                organizer: 'RX Global',
-                sourceId: 'rx-global',
-                description: 'Evento referência focado em otimização de Supply Chain, empilhadeiras automáticas, sistemas WMS e estruturas para grandes centros de distribuição.',
-                link: 'https://www.fenatran.com.br/movimat'
+                organizer: 'MHI',
+                sourceId: 'mhi',
+                description: 'A maior feira de intralogística das Américas. Lançamentos globais de robótica AS/RS, shuttle systems e armazenamento de altíssima densidade.',
+                link: 'https://www.modexshow.com'
             },
             {
                 id: '4',
+                title: 'Agrishow - Feira Internacional de Tecnologia Agrícola',
+                category: 'Agronegócio',
+                region: 'SP',
+                location: 'Ribeirão Preto - SP',
+                startDate: '2026-04-27',
+                date: '27 de Abril a 01 de Maio, 2026',
+                status: 'Inscrições Abertas',
+                organizer: 'Informa Markets',
+                sourceId: 'informa-markets',
+                description: 'Principal vitrine do agronegócio nacional. Soluções em armazenagem agroindustrial, silos verticalizados e intralogística no campo.',
+                link: 'https://www.agrishow.com.br'
+            },
+            {
+                id: '5',
+                title: 'IntraLog - Feira de Intralogística e Logística Reversa',
+                category: 'Intralogística',
+                region: 'SP',
+                location: 'São Paulo - SP (Expo Center Norte)',
+                startDate: '2026-05-12',
+                date: '12 a 14 de Maio, 2026',
+                status: 'Inscrições Abertas',
+                organizer: 'IntraLog Brasil',
+                sourceId: 'informa-markets',
+                description: 'Principal ponto de encontro para soluções em automação de armazéns, estruturas porta-paletes de alta densidade e sistemas de movimentação.',
+                link: 'https://www.intralogshow.com.br'
+            },
+            {
+                id: '6',
+                title: 'Fispal Food Service & Food Ingredients',
+                category: 'Food & Beverage',
+                region: 'SP',
+                location: 'São Paulo - SP (Expo Center Norte)',
+                startDate: '2026-06-09',
+                date: '09 a 12 de Junho, 2026',
+                status: 'Inscrições Abertas',
+                organizer: 'Informa Markets',
+                sourceId: 'informa-markets',
+                description: 'Feira referência na cadeia alimentícia, englobando armazenagem refrigerada (Drive-in/Pallet Flow), câmaras frias e logística de perecíveis.',
+                link: 'https://www.fispalfoodservice.com.br'
+            },
+            {
+                id: '7',
+                title: 'FCE Pharma & Cosmetics - Tecnologia para Indústria Farmacêutica',
+                category: 'Pharma',
+                region: 'SP',
+                location: 'São Paulo - SP (São Paulo Expo)',
+                startDate: '2026-06-16',
+                date: '16 a 18 de Junho, 2026',
+                status: 'Inscrições Abertas',
+                organizer: 'NürnbergMesse',
+                sourceId: 'gov-br',
+                description: 'Hub de soluções de rastreabilidade, salas limpas e intralogística climatizada com alto rigor normativo para o setor farmacêutico.',
+                link: 'https://www.fcepharma.com.br'
+            },
+            {
+                id: '8',
                 title: 'Expo Logística SC & Conecta Supply Chain',
-                category: 'Logística & SCM',
+                category: 'Logística',
                 region: 'SC',
                 location: 'Joinville - SC (Expoville)',
+                startDate: '2026-07-22',
                 date: '22 a 24 de Julho, 2026',
                 status: 'Inscrições Abertas',
                 organizer: 'SC Expo Logística',
@@ -492,11 +555,26 @@
                 link: 'https://expologisticasc.com.br'
             },
             {
-                id: '5',
+                id: '9',
+                title: 'Fórum E-commerce Brasil 2026',
+                category: 'E-commerce',
+                region: 'SP',
+                location: 'São Paulo - SP (Transamerica Expo)',
+                startDate: '2026-07-28',
+                date: '28 a 30 de Julho, 2026',
+                status: 'Inscrições Abertas',
+                organizer: 'E-commerce Brasil',
+                sourceId: 'expo-news-brasil',
+                description: 'O maior evento de comércio eletrônico da América Latina. Foco em Fulfillment, micro-hub urbano, picking de alta velocidade e WMS.',
+                link: 'https://www.ecommercebrasil.com.br'
+            },
+            {
+                id: '10',
                 title: 'Brasil Automation & Robótica Hub',
-                category: 'Automação & Robotica',
+                category: 'Automação Industrial',
                 region: 'SP',
                 location: 'Campinas - SP (Royal Palm)',
+                startDate: '2026-08-18',
                 date: '18 a 20 de Agosto, 2026',
                 status: 'Em breve',
                 organizer: 'ISA Seção Brasil',
@@ -505,30 +583,32 @@
                 link: 'https://isabrasil.org.br'
             },
             {
-                id: '6',
-                title: 'Futurecom - Transformação Digital e Telecom',
-                category: 'Tecnologia & TI',
-                region: 'SP',
-                location: 'São Paulo - SP (São Paulo Expo)',
-                date: '06 a 08 de Outubro, 2026',
+                id: '11',
+                title: 'Mercopar - Feira de Inovação Industrial',
+                category: 'Tecnologia Industrial',
+                region: 'RS',
+                location: 'Caxias do Sul - RS (Pavilhões da Festa da Uva)',
+                startDate: '2026-10-13',
+                date: '13 a 16 de Outubro, 2026',
                 status: 'Confirmado',
-                organizer: 'Informa Markets',
-                sourceId: 'informa-markets',
-                description: 'O maior evento de conectividade, redes 5G privativas para indústrias e sistemas de nuvem aplicados à logística inteligente.',
-                link: 'https://www.futurecom.com.br'
+                organizer: 'Sebrae RS / Fiergs',
+                sourceId: 'mapa-das-feiras',
+                description: 'Maior feira de subcontratação e inovação industrial da América Latina. Foco em soluções de armazenamento inteligente e automação Fabril no Sul do Brasil.',
+                link: 'https://mercopar.com.br'
             },
             {
-                id: '7',
-                title: 'FIMEC - Feira Internacional de Couros, Produtos e Máquinas',
-                category: 'Indústria 4.0',
-                region: 'RS',
-                location: 'Novo Hamburgo - RS (Fenac)',
-                date: '10 a 12 de Março, 2026',
-                status: 'Confirmado',
-                organizer: 'Fenac Experiências',
-                sourceId: 'nurnbergmesse-brasil',
-                description: 'Apresentação de processos automatizados, esteiras de movimentação e estruturas de estocagem para o polo industrial calçadista e manufatura.',
-                link: 'https://www.fimec.com.br'
+                id: '12',
+                title: 'Movimat - Salão Internacional da Logística Integrada',
+                category: 'Armazenagem',
+                region: 'SP',
+                location: 'São Paulo - SP (São Paulo Expo)',
+                startDate: '2026-11-08',
+                date: '08 a 12 de Novembro, 2026',
+                status: 'Inscrições Abertas',
+                organizer: 'RX Global',
+                sourceId: 'rx-global',
+                description: 'Evento referência focado em otimização de Supply Chain, empilhadeiras automáticas, sistemas WMS e estruturas para grandes centros de distribuição.',
+                link: 'https://www.fenatran.com.br/movimat'
             }
         ];
 
@@ -583,7 +663,7 @@
             });
         }
 
-        // RENDER EVENTS
+        // RENDER EVENTS (SORTED BY NEAREST DATE FIRST)
         function renderEvents() {
             const searchTerm = searchInput.value.toLowerCase().trim();
             const selectedCategory = categoryFilter.value;
@@ -591,10 +671,12 @@
             const selectedStatus = statusFilter.value;
             const selectedSource = sourceFilter.value;
 
-            const filtered = eventsData.filter(evt => {
+            // 1. FILTER
+            let filtered = eventsData.filter(evt => {
                 const matchesSearch = evt.title.toLowerCase().includes(searchTerm) || 
                                       evt.location.toLowerCase().includes(searchTerm) ||
-                                      evt.description.toLowerCase().includes(searchTerm);
+                                      evt.description.toLowerCase().includes(searchTerm) ||
+                                      evt.category.toLowerCase().includes(searchTerm);
                 
                 const matchesCategory = selectedCategory === 'ALL' || evt.category === selectedCategory;
                 const matchesLocation = selectedLocation === 'ALL' || evt.region === selectedLocation;
@@ -603,6 +685,9 @@
 
                 return matchesSearch && matchesCategory && matchesLocation && matchesStatus && matchesSource;
             });
+
+            // 2. CHRONOLOGICAL SORTING (MAIS PRÓXIMAS PRIMEIRO - ASCENDING BY DATE)
+            filtered.sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
 
             // Update Counters
             updateStats();
@@ -681,7 +766,7 @@
                 </div>
 
                 <div class="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between">
-                    <span class="text-[11px] font-medium text-slate-500 uppercase">${evt.category}</span>
+                    <span class="text-[11px] font-semibold text-slate-400 px-2 py-0.5 rounded bg-slate-900 border border-slate-800">${evt.category}</span>
                     <button onclick="openDetailModalHandler('${evt.id}')" class="text-xs font-bold text-slate-200 hover:text-red-400 transition flex items-center gap-1.5">
                         Detalhes <i class="fa-solid fa-chevron-right text-[10px]"></i>
                     </button>
@@ -694,7 +779,7 @@
         function updateStats() {
             statTotalEvents.textContent = eventsData.length;
             statOpenEvents.textContent = eventsData.filter(e => e.status === 'Inscrições Abertas').length;
-            statLogisticsEvents.textContent = eventsData.filter(e => e.category === 'Logística & SCM').length;
+            statLogisticsEvents.textContent = eventsData.filter(e => ['Logística', 'Supply Chain', 'Intralogística', 'Armazenagem'].includes(e.category)).length;
             statSulEvents.textContent = eventsData.filter(e => e.region === 'RS' || e.region === 'SC').length;
         }
 
@@ -752,14 +837,12 @@
 
         // EVENT LISTENERS SETUP
         function setupEventListeners() {
-            // Filter Inputs
             searchInput.addEventListener('input', renderEvents);
             categoryFilter.addEventListener('change', renderEvents);
             locationFilter.addEventListener('change', renderEvents);
             statusFilter.addEventListener('change', renderEvents);
             sourceFilter.addEventListener('change', renderEvents);
 
-            // Timer Controls
             toggleAutoRefresh.addEventListener('click', () => {
                 isAutoRefreshActive = !isAutoRefreshActive;
                 toggleAutoRefresh.textContent = isAutoRefreshActive ? 'Pausar' : 'Retomar';
@@ -772,13 +855,11 @@
                 simulateLiveSync();
             });
 
-            // Modals Close
             closeDetailModal.addEventListener('click', () => detailModal.classList.add('hidden'));
             closeAddModal.addEventListener('click', () => addModal.classList.add('hidden'));
             cancelAddBtn.addEventListener('click', () => addModal.classList.add('hidden'));
             openAddModalBtn.addEventListener('click', () => addModal.classList.remove('hidden'));
 
-            // Close modal when clicking outside box
             window.addEventListener('click', (e) => {
                 if (e.target === detailModal) detailModal.classList.add('hidden');
                 if (e.target === addModal) addModal.classList.add('hidden');
@@ -788,12 +869,14 @@
             addEventForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 
+                const startDateVal = document.getElementById('addStartDate').value;
                 const newEvt = {
                     id: Date.now().toString(),
                     title: document.getElementById('addTitle').value,
                     category: document.getElementById('addCategory').value,
                     region: document.getElementById('addRegion').value,
-                    date: document.getElementById('addDate').value,
+                    startDate: startDateVal || '2026-12-31',
+                    date: document.getElementById('addDateText').value,
                     status: document.getElementById('addStatus').value,
                     location: document.getElementById('addLocation').value,
                     description: document.getElementById('addDescription').value || 'Sem descrição informada.',
@@ -802,13 +885,13 @@
                     link: '#'
                 };
 
-                eventsData.unshift(newEvt);
+                eventsData.push(newEvt);
                 renderEvents();
                 addEventForm.reset();
                 addModal.classList.add('hidden');
             });
 
-            // Export List to CSV/Summary
+            // Export List to CSV
             exportCalendarBtn.addEventListener('click', () => {
                 let csvContent = "data:text/csv;charset=utf-8,ID,Titulo,Categoria,Regiao,Data,Status,Local\n";
                 eventsData.forEach(e => {
