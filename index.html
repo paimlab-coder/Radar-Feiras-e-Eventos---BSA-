@@ -1,837 +1,584 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda Tech 2026-2027 - Feiras, Congressos e Eventos | Bertolini Sistemas de Armazenagem</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        bsa: {
-                            blue: '#06418A',
-                            orange: '#F8820A',
-                            lightBg: '#F4F6F9',
-                            cardBg: '#FFFFFF',
-                            border: '#E2E8F0',
-                            textDark: '#1E293B',
-                            textMuted: '#64748B'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #F4F6F9;
-            color: #1E293B;
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #E2E8F0;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #CBD5E1;
-            border-radius: 4px;
-        }
-        .pulse-live {
-            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-            animation: pulse-green 2s infinite;
-        }
-        @keyframes pulse-green {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radar de Feiras & Eventos 2026-2028 | Bertolini Sistemas de Armazenagem</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background:#F4F6F9; color:#1E293B; }
+  .stars i { font-size: 11px; }
+  .chip { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:2px 8px; border-radius:999px; border:1px solid; white-space:nowrap; }
+  .line-clamp-3 { display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+  .line-clamp-2 { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  ::selection { background:#F8820A; color:#fff; }
+</style>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased custom-scrollbar selection:bg-[#F8820A] selection:text-white">
+<body class="min-h-screen flex flex-col antialiased">
 
-    <!-- TOP HEADER COM AZUL OFICIAL (#06418A) E LOGO ATUALIZADA -->
-    <header class="w-full bg-[#06418A] text-white sticky top-0 z-40 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <!-- LOGO OFICIAL BERTOLINI EM DESTAQUE NO TOPO -->
-            <div class="flex flex-col items-center justify-center border-b border-blue-800/60 pb-4 mb-4">
-                <a href="#" class="transition-transform duration-300 hover:scale-105 inline-block">
-                    <img src="https://www.bertoliniarmazenagem.com.br/wp-content/uploads/2024/11/bertolini-logo-claro.svg" 
-                         alt="Bertolini Sistemas de Armazenagem" 
-                         class="h-12 sm:h-16 w-auto object-contain filter drop-shadow">
-                </a>
-                <span class="text-xs uppercase tracking-widest text-blue-100 font-semibold mt-2">Sistemas de Armazenagem & Automação Logística</span>
-            </div>
-
-            <!-- DASHBOARD BAR -->
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="flex items-center gap-3">
-                    <div class="p-2.5 bg-[#F8820A] rounded-xl text-white shadow-md">
-                        <i class="fa-solid fa-calendar-days text-xl"></i>
-                    </div>
-                    <div>
-                        <h1 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight flex items-center gap-2">
-                            Agenda Tech 2026-2027 <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-900 text-orange-300 border border-orange-400/40">sysINFO Sync</span>
-                        </h1>
-                        <p class="text-xs text-blue-100">Feiras, Congressos e Eventos Estratégicos (Brasil, LATAM e Internacional)</p>
-                    </div>
-                </div>
-
-                <!-- AUTO-REFRESH STATUS TICKER -->
-                <div class="flex items-center gap-4 bg-blue-900/80 px-4 py-2 rounded-xl border border-blue-700/60 text-xs text-blue-100">
-                    <div class="flex items-center gap-2">
-                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 pulse-live"></span>
-                        <span class="font-medium">Sincronização em tempo real</span>
-                    </div>
-                    <div class="h-4 w-[1px] bg-blue-700"></div>
-                    <div class="flex items-center gap-2 font-mono">
-                        <i class="fa-solid fa-arrows-rotate text-blue-200 text-xs cursor-pointer hover:text-white transition" id="manualRefreshBtn" title="Forçar Atualização"></i>
-                        <span>Próxima atualização: <strong id="timerCountdown" class="text-orange-300">30s</strong></span>
-                    </div>
-                    <button id="toggleAutoRefresh" class="text-[10px] uppercase font-bold bg-blue-800 hover:bg-blue-700 px-2 py-1 rounded text-white transition">
-                        Pausar
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- MAIN CONTENT AREA -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
-        
-        <!-- METRICS COUNTERS -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group">
-                <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Total de Eventos</div>
-                <div class="text-3xl font-extrabold text-[#06418A]" id="statTotalEvents">0</div>
-                <div class="text-[11px] text-slate-500 mt-2 flex items-center gap-1">
-                    <i class="fa-solid fa-check text-emerald-600"></i> Mapeados no Radar
-                </div>
-            </div>
-
-            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group">
-                <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Inscrições Abertas</div>
-                <div class="text-3xl font-extrabold text-emerald-600" id="statOpenEvents">0</div>
-                <div class="text-[11px] text-emerald-600 mt-2 flex items-center gap-1">
-                    <i class="fa-solid fa-circle-play text-xs"></i> Prontos para prospecção
-                </div>
-            </div>
-
-            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group">
-                <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Logística & SCM</div>
-                <div class="text-3xl font-extrabold text-[#F8820A]" id="statLogisticsEvents">0</div>
-                <div class="text-[11px] text-orange-600 mt-2 flex items-center gap-1">
-                    <i class="fa-solid fa-warehouse text-xs"></i> Foco Bertolini
-                </div>
-            </div>
-
-            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group">
-                <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">América Latina (LATAM)</div>
-                <div class="text-3xl font-extrabold text-[#06418A]" id="statLatamEvents">0</div>
-                <div class="text-[11px] text-blue-600 mt-2 flex items-center gap-1">
-                    <i class="fa-solid fa-earth-americas text-xs"></i> Expansão Internacional
-                </div>
-            </div>
-        </div>
-
-        <!-- CONTROLS & FILTER BAR -->
-        <div class="bg-white p-5 rounded-2xl mb-8 border border-slate-200 shadow-sm">
-            <div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
-                
-                <!-- SEARCH INPUT -->
-                <div class="relative w-full lg:w-72">
-                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                    <input type="text" id="searchInput" placeholder="Buscar evento, cidade, 2026/2027..." 
-                           class="w-full pl-11 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#F8820A] focus:ring-1 focus:ring-[#F8820A] transition">
-                </div>
-
-                <!-- CATEGORY & LOCATION FILTERS -->
-                <div class="flex flex-wrap items-center gap-2.5 w-full lg:w-auto">
-                    <!-- THEMES / CATEGORIES FILTER -->
-                    <select id="categoryFilter" class="bg-slate-50 border border-slate-200 text-xs text-slate-700 rounded-xl px-3 py-2.5 focus:outline-none focus:border-[#F8820A] transition">
-                        <option value="ALL">Todos os Temas</option>
-                        <option value="Logística">Logística</option>
-                        <option value="Supply Chain">Supply Chain</option>
-                        <option value="Intralogística">Intralogística</option>
-                        <option value="Armazenagem">Armazenagem</option>
-                        <option value="Automação Industrial">Automação Industrial</option>
-                        <option value="E-commerce">E-commerce</option>
-                        <option value="Food & Beverage">Food & Beverage</option>
-                        <option value="Agronegócio">Agronegócio</option>
-                        <option value="Pharma">Pharma</option>
-                        <option value="Tecnologia Industrial">Tecnologia Industrial</option>
-                    </select>
-
-                    <!-- LOCATION WITH LATAM TAB -->
-                    <select id="locationFilter" class="bg-slate-50 border border-slate-200 text-xs text-slate-700 rounded-xl px-3 py-2.5 focus:outline-none focus:border-[#F8820A] transition">
-                        <option value="ALL">Todas as Regiões</option>
-                        <option value="RS">Rio Grande do Sul (RS)</option>
-                        <option value="SC">Santa Catarina (SC)</option>
-                        <option value="SP">São Paulo (SP)</option>
-                        <option value="BR">Outros Estados (Brasil)</option>
-                        <option value="LATAM">América Latina (LATAM)</option>
-                        <option value="INT">Outros Países (Global)</option>
-                    </select>
-
-                    <!-- STATUS -->
-                    <select id="statusFilter" class="bg-slate-50 border border-slate-200 text-xs text-slate-700 rounded-xl px-3 py-2.5 focus:outline-none focus:border-[#F8820A] transition">
-                        <option value="ALL">Todos os Status</option>
-                        <option value="Inscrições Abertas">Inscrições Abertas</option>
-                        <option value="Confirmado">Confirmado</option>
-                        <option value="Em breve">Em breve</option>
-                    </select>
-
-                    <!-- SOURCE FILTER -->
-                    <select id="sourceFilter" class="bg-slate-50 border border-slate-200 text-xs text-slate-700 rounded-xl px-3 py-2.5 focus:outline-none focus:border-[#F8820A] transition">
-                        <option value="ALL">Todas as Fontes</option>
-                    </select>
-
-                    <!-- ACTION BUTTONS -->
-                    <div class="flex items-center gap-2 ml-auto lg:ml-0">
-                        <button id="openAddModalBtn" class="bg-[#F8820A] hover:bg-orange-600 text-white px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center gap-2 shadow-sm">
-                            <i class="fa-solid fa-plus"></i> Novo Evento
-                        </button>
-                        <button id="exportCalendarBtn" class="bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 px-3 py-2.5 rounded-xl text-xs font-semibold transition flex items-center gap-2" title="Exportar Lista">
-                            <i class="fa-solid fa-file-export"></i> Exportar
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- EVENT CARDS GRID -->
-        <div id="eventsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Conteúdo dinâmico gerado pelo JS -->
-        </div>
-
-        <!-- EMPTY STATE -->
-        <div id="emptyState" class="hidden text-center py-16 bg-white rounded-2xl border border-slate-200 mt-4 shadow-sm">
-            <i class="fa-solid fa-calendar-xmark text-5xl text-slate-400 mb-4"></i>
-            <h3 class="text-lg font-bold text-slate-700">Nenhum evento encontrado</h3>
-            <p class="text-sm text-slate-500 mt-1">Tente ajustar os filtros de pesquisa ou categoria acima.</p>
-        </div>
-    </main>
-
-    <!-- FOOTER COM AZUL CORPORATIVO (#06418A) E LOGO CLARA -->
-    <footer class="w-full bg-[#06418A] text-white py-6 mt-12 border-t border-blue-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-blue-100">
-            <div class="flex items-center gap-3">
-                <img src="https://www.bertoliniarmazenagem.com.br/wp-content/uploads/2024/11/bertolini-logo-claro.svg" 
-                     alt="Bertolini Sistemas de Armazenagem" 
-                     class="h-6 w-auto opacity-90">
-                <span>&copy; 2026-2027 Bertolini Sistemas de Armazenagem - Radar Executivo de Inteligência Estratégica.</span>
-            </div>
-            <div class="flex items-center gap-6">
-                <span class="hover:text-white transition cursor-pointer">Termos & Privacidade</span>
-                <span class="hover:text-white transition cursor-pointer">Painel sysINFO</span>
-                <span class="text-blue-200">v3.8.0 Chrono-Engine</span>
-            </div>
-        </div>
-    </footer>
-
-    <!-- EVENT DETAILS MODAL -->
-    <div id="detailModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white border border-slate-200 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden relative">
-            <div class="p-6 border-b border-slate-100 flex justify-between items-start bg-slate-50">
-                <div class="pr-6">
-                    <span id="modalCategory" class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-blue-50 text-[#06418A] border border-blue-200">
-                        Categoria
-                    </span>
-                    <h2 id="modalTitle" class="text-xl font-extrabold text-[#06418A] mt-2">Nome do Evento</h2>
-                    <p id="modalOrganizer" class="text-xs text-slate-500 mt-1">Organizado por sysINFO Tech</p>
-                </div>
-                <button id="closeDetailModal" class="text-slate-400 hover:text-slate-700 p-2 rounded-lg bg-slate-200/60 transition">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
-            </div>
-            
-            <div class="p-6 space-y-4 text-sm text-slate-700">
-                <div class="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
-                    <div>
-                        <span class="text-xs font-semibold text-slate-400 uppercase block">Data & Horário</span>
-                        <strong id="modalDate" class="text-slate-800">15 a 18 de Maio, 2026</strong>
-                    </div>
-                    <div>
-                        <span class="text-xs font-semibold text-slate-400 uppercase block">Localização</span>
-                        <strong id="modalLocation" class="text-slate-800">Bento Gonçalves - RS</strong>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Sobre o Evento</h4>
-                    <p id="modalDescription" class="text-slate-600 leading-relaxed text-xs sm:text-sm">
-                        Descrição do evento e tópicos abordados sobre automação, armazenagem de alta densidade e intralogística.
-                    </p>
-                </div>
-
-                <div>
-                    <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Destaques Bertolini</h4>
-                    <ul class="text-xs space-y-1.5 text-slate-600 list-disc list-inside">
-                        <li>Sistemas de Transelevadores e Movimentação Automática</li>
-                        <li>Estruturas Porta-Paletes e Armazenamento Verticalizado</li>
-                        <li>Softwares WMS/WCS Integrados à Indústria 4.0</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="p-6 border-t border-slate-100 bg-slate-50 flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <span id="modalBadge" class="text-xs font-semibold px-3 py-1 rounded-full">Status</span>
-                </div>
-                <a id="modalLink" href="#" target="_blank" class="bg-[#F8820A] hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-sm">
-                    Acessar Site Oficial <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-            </div>
-        </div>
+<!-- HEADER -->
+<header class="w-full bg-[#06418A] text-white sticky top-0 z-40 shadow-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex flex-col items-center border-b border-blue-800/60 pb-3 mb-3">
+      <img src="https://www.bertoliniarmazenagem.com.br/wp-content/uploads/2024/11/bertolini-logo-claro.svg" alt="Bertolini Sistemas de Armazenagem" class="h-12 sm:h-14 w-auto">
+      <span class="text-[11px] uppercase tracking-widest text-blue-100 font-semibold mt-2">Sistemas de Armazenagem & Automação Logística</span>
     </div>
-
-    <!-- ADD CUSTOM EVENT MODAL -->
-    <div id="addModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white border border-slate-200 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden relative">
-            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                <h2 class="text-lg font-bold text-[#06418A] flex items-center gap-2">
-                    <i class="fa-solid fa-calendar-plus text-[#F8820A]"></i> Adicionar Evento à Agenda
-                </h2>
-                <button id="closeAddModal" class="text-slate-400 hover:text-slate-700 p-2 rounded-lg bg-slate-200/60 transition">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
-            </div>
-            
-            <form id="addEventForm" class="p-6 space-y-4 text-xs">
-                <div>
-                    <label class="block font-bold text-slate-700 mb-1">Nome do Evento *</label>
-                    <input type="text" id="addTitle" required placeholder="Ex: ProMat 2027" 
-                           class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-slate-800 focus:outline-none focus:border-[#F8820A]">
-                </div>
-
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">Tema Principal *</label>
-                        <select id="addCategory" required class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-slate-800 focus:outline-none focus:border-[#F8820A]">
-                            <option value="Logística">Logística</option>
-                            <option value="Supply Chain">Supply Chain</option>
-                            <option value="Intralogística">Intralogística</option>
-                            <option value="Armazenagem">Armazenagem</option>
-                            <option value="Automação Industrial">Automação Industrial</option>
-                            <option value="E-commerce">E-commerce</option>
-                            <option value="Food & Beverage">Food & Beverage</option>
-                            <option value="Agronegócio">Agronegócio</option>
-                            <option value="Pharma">Pharma</option>
-                            <option value="Tecnologia Industrial">Tecnologia Industrial</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">Região/UF *</label>
-                        <select id="addRegion" required class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-slate-800 focus:outline-none focus:border-[#F8820A]">
-                            <option value="RS">Rio Grande do Sul (RS)</option>
-                            <option value="SC">Santa Catarina (SC)</option>
-                            <option value="SP">São Paulo (SP)</option>
-                            <option value="BR">Outro Estado (BR)</option>
-                            <option value="LATAM">América Latina (LATAM)</option>
-                            <option value="INT">Internacional (Outros)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">Data Início (AAAA-MM-DD) *</label>
-                        <input type="date" id="addStartDate" required 
-                               class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-slate-800 focus:outline-none focus:border-[#F8820A]">
-                    </div>
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">Texto Amigável da Data *</label>
-                        <input type="text" id="addDateText" required placeholder="Ex: 15 a 18 de Março, 2027" 
-                               class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-slate-800 focus:outline-none focus:border-[#F8820A]">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">Status *</label>
-                        <select id="addStatus" required class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-slate-800 focus:outline-none focus:border-[#F8820A]">
-                            <option value="Inscrições Abertas">Inscrições Abertas</option>
-                            <option value="Confirmado">Confirmado</option>
-                            <option value="Em breve">Em breve</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">Cidade / Local *</label>
-                        <input type="text" id="addLocation" required placeholder="Ex: Chicago - IL (USA)" 
-                               class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-slate-800 focus:outline-none focus:border-[#F8820A]">
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block font-bold text-slate-700 mb-1">Descrição Breve</label>
-                    <textarea id="addDescription" rows="3" placeholder="Insira detalhes e relevância para o setor..." 
-                              class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-slate-800 focus:outline-none focus:border-[#F8820A]"></textarea>
-                </div>
-
-                <div class="pt-2 flex justify-end gap-2">
-                    <button type="button" id="cancelAddBtn" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-xl transition">Cancelar</button>
-                    <button type="submit" class="bg-[#F8820A] hover:bg-orange-600 text-white font-bold px-5 py-2 rounded-xl transition shadow-sm">Salvar Evento</button>
-                </div>
-            </form>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="p-2.5 bg-[#F8820A] rounded-xl shadow-md"><i class="fa-solid fa-satellite-dish text-xl"></i></div>
+        <div>
+          <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight">Radar de Feiras & Eventos 2026-2028</h1>
+          <p class="text-xs text-blue-100">Logística · Armazenagem · Intralogística · Verticalização · Empilhadeiras · Transporte · Sorters</p>
         </div>
+      </div>
+      <div class="flex items-center gap-3 bg-blue-900/80 px-4 py-2 rounded-xl border border-blue-700/60 text-xs text-blue-100">
+        <i class="fa-solid fa-database text-orange-300"></i>
+        <span>Base revisada em <strong class="text-white">18/11/2026</strong></span>
+        <span class="h-4 w-px bg-blue-700"></span>
+        <span>Hoje: <strong id="todayLabel" class="text-orange-300"></strong></span>
+      </div>
     </div>
+  </div>
+</header>
 
-    <!-- JAVASCRIPT LOGIC -->
-    <script>
-        const EVENT_SOURCES = [
-            { id: 'mapa-das-feiras', name: 'Mapa das Feiras', scope: 'Brasil', url: 'https://www.mapadasfeiras.com.br/', active: true },
-            { id: 'feiras-do-brasil', name: 'Feiras do Brasil', scope: 'Brasil', url: 'https://www.feirasdobrasil.com.br/', active: true },
-            { id: 'gov-br', name: 'Calendário Brasileiro de Feiras', scope: 'Brasil', url: 'https://www.gov.br/', active: true },
-            { id: 'expo-news-brasil', name: 'Expo News Brasil', scope: 'Brasil', url: 'https://www.exponewsbrasil.com.br/', active: true },
-            { id: 'logistics-latam', name: 'Logistics Latam / Mexico Summit', scope: 'LATAM', url: 'https://www.logisticssummit.com/', active: true },
-            { id: 'expotrande-latam', name: 'Exposiciones Latinoamerica', scope: 'LATAM', url: 'https://www.eventseye.com/', active: true },
-            { id: 'events-eye', name: 'EventsEye', scope: 'Internacional', url: 'https://www.eventseye.com/', active: true },
-            { id: '10times', name: '10Times', scope: 'Internacional', url: 'https://10times.com/', active: true },
-            { id: 'informa-markets', name: 'Informa Markets', scope: 'Global', url: 'https://www.informamarkets.com/', active: true },
-            { id: 'rx-global', name: 'RX Global', scope: 'Global', url: 'https://rxglobal.com/', active: true },
-            { id: 'mhi', name: 'MHI / MODEX / ProMat', scope: 'Internacional', url: 'https://www.mhi.org/', active: true }
-        ];
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
 
-        // Lista de Eventos 2026-2027 com datas ISO
-        let eventsData = [
-            {
-                id: '1',
-                title: 'FIMEC - Feira Internacional de Couros, Máquinas e Componentes',
-                category: 'Tecnologia Industrial',
-                region: 'RS',
-                location: 'Novo Hamburgo - RS (Fenac)',
-                startDate: '2026-03-10',
-                date: '10 a 12 de Março, 2026',
-                status: 'Confirmado',
-                organizer: 'Fenac Experiências',
-                sourceId: 'feiras-do-brasil',
-                description: 'Apresentação de processos automatizados, esteiras de movimentação e estruturas de estocagem para o polo industrial calçadista e manufatura.',
-                link: 'https://www.fimec.com.br'
-            },
-            {
-                id: '2',
-                title: 'Expodireto Cotrijal - Tecnologia Agro',
-                category: 'Agronegócio',
-                region: 'RS',
-                location: 'Não-Me-Toque - RS',
-                startDate: '2026-03-23',
-                date: '23 a 27 de Março, 2026',
-                status: 'Confirmado',
-                organizer: 'Cotrijal',
-                sourceId: 'mapa-das-feiras',
-                description: 'Uma das maiores feiras do agronegócio do Brasil, focando em armazenagem de grãos, silos automatizados e logística de escoamento agrícola.',
-                link: 'https://www.expodireto.cotrijal.com.br'
-            },
-            {
-                id: '3',
-                title: 'MODEX 2026 - Manufacturing & Supply Chain Expo',
-                category: 'Supply Chain',
-                region: 'INT',
-                location: 'Atlanta - GA (EUA)',
-                startDate: '2026-04-13',
-                date: '13 a 16 de Abril, 2026',
-                status: 'Inscrições Abertas',
-                organizer: 'MHI',
-                sourceId: 'mhi',
-                description: 'A maior feira de intralogística das Américas. Lançamentos globais de robótica AS/RS, shuttle systems e armazenamento de altíssima densidade.',
-                link: 'https://www.modexshow.com'
-            },
-            {
-                id: '4',
-                title: 'Logistics Summit & Expo México 2026',
-                category: 'Logística',
-                region: 'LATAM',
-                location: 'Cidade do México - México (Centro Citibanamex)',
-                startDate: '2026-04-22',
-                date: '22 a 23 de Abril, 2026',
-                status: 'Inscrições Abertas',
-                organizer: 'Logistics Summit LATAM',
-                sourceId: 'logistics-latam',
-                description: 'O evento líder de Supply Chain, Logística e Intralogística da América Latina. Reúne fornecedores de sistemas porta-paletes, automação e última milha.',
-                link: 'https://www.logisticssummit.com'
-            },
-            {
-                id: '5',
-                title: 'Agrishow - Feira Internacional de Tecnologia Agrícola',
-                category: 'Agronegócio',
-                region: 'SP',
-                location: 'Ribeirão Preto - SP',
-                startDate: '2026-04-27',
-                date: '27 de Abril a 01 de Maio, 2026',
-                status: 'Inscrições Abertas',
-                organizer: 'Informa Markets',
-                sourceId: 'informa-markets',
-                description: 'Principal vitrine do agronegócio nacional. Soluções em armazenagem agroindustrial, silos verticalizados e intralogística no campo.',
-                link: 'https://www.agrishow.com.br'
-            },
-            {
-                id: '6',
-                title: 'IntraLog - Feira de Intralogística e Logística Reversa',
-                category: 'Intralogística',
-                region: 'SP',
-                location: 'São Paulo - SP (Expo Center Norte)',
-                startDate: '2026-05-12',
-                date: '12 a 14 de Maio, 2026',
-                status: 'Inscrições Abertas',
-                organizer: 'IntraLog Brasil',
-                sourceId: 'informa-markets',
-                description: 'Principal ponto de encontro para soluções em automação de armazéns, estruturas porta-paletes de alta densidade e sistemas de movimentação.',
-                link: 'https://www.intralogshow.com.br'
-            },
-            {
-                id: '7',
-                title: 'Expoex / Expolog Chile - Logística & Comercio Exterior',
-                category: 'Supply Chain',
-                region: 'LATAM',
-                location: 'Santiago - Chile',
-                startDate: '2026-05-20',
-                date: '20 a 22 de Maio, 2026',
-                status: 'Confirmado',
-                organizer: 'Expolog Latam',
-                sourceId: 'expotrande-latam',
-                description: 'Foco na modernização de centros de distribuição na Região Andina, automação de armazéns e integração portuária na América do Sul.',
-                link: 'https://www.eventseye.com'
-            },
-            {
-                id: '8',
-                title: 'Fispal Food Service & Food Ingredients',
-                category: 'Food & Beverage',
-                region: 'SP',
-                location: 'São Paulo - SP (Expo Center Norte)',
-                startDate: '2026-06-09',
-                date: '09 a 12 de Junho, 2026',
-                status: 'Inscrições Abertas',
-                organizer: 'Informa Markets',
-                sourceId: 'informa-markets',
-                description: 'Feira referência na cadeia alimentícia, englobando armazenagem refrigerada (Drive-in/Pallet Flow), câmaras frias e logística de perecíveis.',
-                link: 'https://www.fispalfoodservice.com.br'
-            },
-            {
-                id: '9',
-                title: 'FCE Pharma & Cosmetics - Tecnologia para Indústria Farmacêutica',
-                category: 'Pharma',
-                region: 'SP',
-                location: 'São Paulo - SP (São Paulo Expo)',
-                startDate: '2026-06-16',
-                date: '16 a 18 de Junho, 2026',
-                status: 'Inscrições Abertas',
-                organizer: 'Informa Markets',
-                sourceId: 'informa-markets',
-                description: 'Tecnologias de armazenagem limpa, verticalização para produtos farmacêuticos e automação com controle rigoroso de lotes e validade.',
-                link: 'https://www.fcepharma.com.br'
-            },
-            {
-                id: '10',
-                title: 'Expo Sial Interfood Argentina',
-                category: 'Food & Beverage',
-                region: 'LATAM',
-                location: 'Buenos Aires - Argentina',
-                startDate: '2026-08-11',
-                date: '11 a 13 de Agosto, 2026',
-                status: 'Em breve',
-                organizer: 'Exposium LATAM',
-                sourceId: 'expotrande-latam',
-                description: 'Encontro estratégico de tecnologia de alimentos, processamento e sistemas de armazenagem para o Cone Sul.',
-                link: 'https://www.10times.com'
-            },
-            // EVENTOS 2027
-            {
-                id: '2027-1',
-                title: 'ProMat 2027 - Material Handling & Logistics Show',
-                category: 'Supply Chain',
-                region: 'INT',
-                location: 'Chicago - IL (McCormick Place, EUA)',
-                startDate: '2027-03-15',
-                date: '15 a 18 de Março, 2027',
-                status: 'Em breve',
-                organizer: 'MHI Global',
-                sourceId: 'mhi',
-                description: 'O maior evento de cadeia de suprimentos e automação de armazéns da América do Norte para o ano de 2027. Tendências globais em robótica e transelevadores.',
-                link: 'https://www.promatshow.com'
-            },
-            {
-                id: '2027-2',
-                title: 'Logistics Summit & Expo México 2027',
-                category: 'Logística',
-                region: 'LATAM',
-                location: 'Cidade do México - México',
-                startDate: '2027-04-14',
-                date: '14 a 15 de Abril, 2027',
-                status: 'Em breve',
-                organizer: 'Logistics Summit LATAM',
-                sourceId: 'logistics-latam',
-                description: 'Edição 2027 do maior fórum de cúpula logística da América Latina, reunindo executivos de e-commerce, intralogística e transporte.',
-                link: 'https://www.logisticssummit.com'
-            },
-            {
-                id: '2027-3',
-                title: 'Agrishow 2027 - Feira Internacional de Tecnologia Agrícola',
-                category: 'Agronegócio',
-                region: 'SP',
-                location: 'Ribeirão Preto - SP',
-                startDate: '2027-04-26',
-                date: '26 de Abril a 30 de Abril, 2027',
-                status: 'Em breve',
-                organizer: 'Informa Markets',
-                sourceId: 'informa-markets',
-                description: 'Planejamento estratégico para a maior feira de tecnologia agrícola do país com foco em armazenagem de grande porte.',
-                link: 'https://www.agrishow.com.br'
-            },
-            {
-                id: '2027-4',
-                title: 'Expolog Brasil / Sul - Feira de Logística e Transporte',
-                category: 'Logística',
-                region: 'RS',
-                location: 'Porto Alegre - RS',
-                startDate: '2027-06-08',
-                date: '08 a 10 de Junho, 2027',
-                status: 'Em breve',
-                organizer: 'Expolog RS',
-                sourceId: 'feiras-do-brasil',
-                description: 'Encontro regional focado em corredores de exportação, portos gaúchos e redes de centros de distribuição no Sul do Brasil.',
-                link: 'https://www.feirasdobrasil.com.br'
-            }
-        ];
+  <!-- KPIs -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+      <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Próximos eventos</div>
+      <div class="text-3xl font-extrabold text-[#06418A]" id="kpiUpcoming">0</div>
+      <div class="text-[11px] text-slate-500 mt-2"><i class="fa-solid fa-calendar-check text-emerald-600"></i> A partir de hoje</div>
+    </div>
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+      <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Networking 5 estrelas</div>
+      <div class="text-3xl font-extrabold text-[#F8820A]" id="kpiFive">0</div>
+      <div class="text-[11px] text-orange-600 mt-2"><i class="fa-solid fa-star"></i> Prioridade máxima</div>
+    </div>
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+      <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Nos próximos 90 dias</div>
+      <div class="text-3xl font-extrabold text-emerald-600" id="kpi90">0</div>
+      <div class="text-[11px] text-emerald-700 mt-2"><i class="fa-solid fa-bolt"></i> Hora de agendar reuniões</div>
+    </div>
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+      <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Regiões cobertas</div>
+      <div class="text-3xl font-extrabold text-[#06418A]" id="kpiRegions">0</div>
+      <div class="text-[11px] text-blue-600 mt-2"><i class="fa-solid fa-map-location-dot"></i> Brasil, LATAM e Global</div>
+    </div>
+  </div>
 
-        // Populando filtro de fontes
-        const sourceFilterSelect = document.getElementById('sourceFilter');
-        EVENT_SOURCES.forEach(src => {
-            const opt = document.createElement('option');
-            opt.value = src.id;
-            opt.textContent = `${src.name} (${src.scope})`;
-            sourceFilterSelect.appendChild(opt);
-        });
+  <!-- TOP NETWORKING + REGIONAL -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
+    <div class="lg:col-span-2 bg-gradient-to-br from-[#06418A] to-[#0a2f63] text-white p-5 rounded-2xl shadow-sm">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="font-extrabold text-sm uppercase tracking-wider"><i class="fa-solid fa-trophy text-orange-300 mr-1"></i> Top networking — próximos eventos</h2>
+        <span class="text-[10px] text-blue-200">Clique para ver detalhes</span>
+      </div>
+      <div id="topList" class="grid sm:grid-cols-2 gap-2"></div>
+    </div>
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+      <h2 class="font-extrabold text-sm uppercase tracking-wider text-[#06418A] mb-3"><i class="fa-solid fa-map text-[#F8820A] mr-1"></i> Próximos eventos por região</h2>
+      <div id="regionBars" class="space-y-2"></div>
+    </div>
+  </div>
 
-        // Elementos DOM
-        const eventsGrid = document.getElementById('eventsGrid');
-        const emptyState = document.getElementById('emptyState');
-        const searchInput = document.getElementById('searchInput');
-        const categoryFilter = document.getElementById('categoryFilter');
-        const locationFilter = document.getElementById('locationFilter');
-        const statusFilter = document.getElementById('statusFilter');
-        const sourceFilter = document.getElementById('sourceFilter');
-        
-        // Métricas
-        const statTotalEvents = document.getElementById('statTotalEvents');
-        const statOpenEvents = document.getElementById('statOpenEvents');
-        const statLogisticsEvents = document.getElementById('statLogisticsEvents');
-        const statLatamEvents = document.getElementById('statLatamEvents');
+  <!-- FILTERS -->
+  <div class="bg-white p-5 rounded-2xl mb-6 border border-slate-200 shadow-sm">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2.5 items-center">
+      <div class="relative col-span-2">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+        <input id="searchInput" type="text" placeholder="Buscar evento, cidade, tema..." class="w-full pl-10 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#F8820A]">
+      </div>
+      <select id="regionFilter" class="sel"><option value="ALL">Todas as regiões</option></select>
+      <select id="tagFilter" class="sel"><option value="ALL">Todos os temas</option></select>
+      <select id="typeFilter" class="sel"><option value="ALL">Todos os formatos</option></select>
+      <select id="starsFilter" class="sel">
+        <option value="0">Networking: todos</option>
+        <option value="5">★★★★★ apenas</option>
+        <option value="4">★★★★ ou mais</option>
+        <option value="3">★★★ ou mais</option>
+      </select>
+      <select id="sortSelect" class="sel">
+        <option value="date">Ordenar: data</option>
+        <option value="stars">Ordenar: networking</option>
+      </select>
+      <select id="sourceFilter" class="sel"><option value="ALL">Todas as fontes</option></select>
+    </div>
+    <div class="flex flex-wrap items-center justify-between gap-3 mt-3 pt-3 border-t border-slate-100">
+      <label class="flex items-center gap-2 text-xs text-slate-600 cursor-pointer">
+        <input id="showPast" type="checkbox" class="accent-[#F8820A]"> Mostrar eventos já realizados (histórico 2026)
+      </label>
+      <div class="flex items-center gap-2">
+        <span id="resultCount" class="text-xs text-slate-500 mr-2"></span>
+        <button id="openAddModalBtn" class="bg-[#F8820A] hover:bg-orange-600 text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2"><i class="fa-solid fa-plus"></i> Novo evento</button>
+        <button id="exportCsvBtn" class="bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2"><i class="fa-solid fa-file-csv"></i> Exportar CSV</button>
+        <button id="openSourcesBtn" class="bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2"><i class="fa-solid fa-link"></i> Fontes</button>
+      </div>
+    </div>
+  </div>
 
-        // Modais
-        const detailModal = document.getElementById('detailModal');
-        const closeDetailModal = document.getElementById('closeDetailModal');
-        const addModal = document.getElementById('addModal');
-        const openAddModalBtn = document.getElementById('openAddModalBtn');
-        const closeAddModal = document.getElementById('closeAddModal');
-        const cancelAddBtn = document.getElementById('cancelAddBtn');
-        const addEventForm = document.getElementById('addEventForm');
+  <!-- LEGEND -->
+  <div class="flex flex-wrap gap-x-5 gap-y-1 text-[11px] text-slate-500 mb-4">
+    <span><b class="text-[#F8820A]">★★★★★</b> decisores C-level + público-alvo direto da BSA</span>
+    <span><b class="text-[#F8820A]">★★★★</b> forte fluxo de compradores qualificados</span>
+    <span><b class="text-[#F8820A]">★★★</b> bom networking setorial / regional</span>
+    <span><b class="text-[#F8820A]">★★</b> nicho / benchmarking</span>
+    <span><i class="fa-solid fa-circle-exclamation text-amber-500"></i> data a confirmar com o organizador</span>
+  </div>
 
-        // Estado do Timer
-        let countdownValue = 30;
-        let isPaused = false;
-        const timerCountdownEl = document.getElementById('timerCountdown');
-        const toggleAutoRefreshBtn = document.getElementById('toggleAutoRefresh');
-        const manualRefreshBtn = document.getElementById('manualRefreshBtn');
+  <div id="eventsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+  <div id="emptyState" class="hidden text-center py-16 bg-white rounded-2xl border border-slate-200 shadow-sm">
+    <i class="fa-solid fa-calendar-xmark text-5xl text-slate-400 mb-4"></i>
+    <h3 class="text-lg font-bold text-slate-700">Nenhum evento encontrado</h3>
+    <p class="text-sm text-slate-500 mt-1">Ajuste os filtros ou marque "Mostrar eventos já realizados".</p>
+  </div>
+</main>
 
-        // Renderização com ordenação cronológica
-        function renderEvents() {
-            const searchTerm = searchInput.value.toLowerCase();
-            const catVal = categoryFilter.value;
-            const locVal = locationFilter.value;
-            const statVal = statusFilter.value;
-            const srcVal = sourceFilter.value;
+<footer class="w-full bg-[#06418A] text-white py-6 mt-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-blue-100">
+    <div class="flex items-center gap-3">
+      <img src="https://www.bertoliniarmazenagem.com.br/wp-content/uploads/2024/11/bertolini-logo-claro.svg" alt="Bertolini" class="h-6 w-auto opacity-90">
+      <span>&copy; Bertolini Sistemas de Armazenagem — Radar Executivo de Feiras & Eventos.</span>
+    </div>
+    <span class="text-blue-200">Datas sujeitas a alteração pelos organizadores. Confirme no site oficial antes de reservar.</span>
+  </div>
+</footer>
 
-            // Filtragem
-            let filtered = eventsData.filter(ev => {
-                const matchesSearch = ev.title.toLowerCase().includes(searchTerm) || 
-                                      ev.location.toLowerCase().includes(searchTerm) || 
-                                      ev.description.toLowerCase().includes(searchTerm) ||
-                                      ev.date.toLowerCase().includes(searchTerm);
-                const matchesCat = (catVal === 'ALL' || ev.category === catVal);
-                const matchesLoc = (locVal === 'ALL' || ev.region === locVal);
-                const matchesStat = (statVal === 'ALL' || ev.status === statVal);
-                const matchesSrc = (srcVal === 'ALL' || ev.sourceId === srcVal);
+<!-- DETAIL MODAL -->
+<div id="detailModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+  <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
+    <div class="p-6 border-b border-slate-100 flex justify-between items-start bg-slate-50">
+      <div class="pr-6">
+        <div id="mTags" class="flex flex-wrap gap-1.5"></div>
+        <h2 id="mTitle" class="text-xl font-extrabold text-[#06418A] mt-2"></h2>
+        <p id="mOrganizer" class="text-xs text-slate-500 mt-1"></p>
+      </div>
+      <button data-close="detailModal" class="text-slate-400 hover:text-slate-700 p-2 rounded-lg bg-slate-200/60"><i class="fa-solid fa-xmark text-lg"></i></button>
+    </div>
+    <div class="p-6 space-y-4 text-sm text-slate-700 overflow-y-auto">
+      <div class="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
+        <div><span class="text-[10px] font-bold text-slate-400 uppercase block">Data</span><strong id="mDate"></strong></div>
+        <div><span class="text-[10px] font-bold text-slate-400 uppercase block">Local</span><strong id="mLocation"></strong></div>
+        <div><span class="text-[10px] font-bold text-slate-400 uppercase block">Porte (última edição)</span><strong id="mSize"></strong></div>
+        <div><span class="text-[10px] font-bold text-slate-400 uppercase block">Networking</span><span id="mStars" class="stars text-[#F8820A]"></span></div>
+      </div>
+      <div><h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Sobre o evento</h4><p id="mDesc" class="text-slate-600 leading-relaxed"></p></div>
+      <div class="bg-orange-50 border border-orange-200 rounded-xl p-4">
+        <h4 class="text-xs font-bold text-orange-700 uppercase tracking-wider mb-1"><i class="fa-solid fa-handshake"></i> Por que vale para a BSA</h4>
+        <p id="mNet" class="text-slate-700"></p>
+      </div>
+      <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+        <h4 class="text-xs font-bold text-[#06418A] uppercase tracking-wider mb-1"><i class="fa-solid fa-bullseye"></i> Ação recomendada</h4>
+        <p id="mAction" class="text-slate-700"></p>
+      </div>
+      <p id="mSource" class="text-[11px] text-slate-400"></p>
+    </div>
+    <div class="p-5 border-t border-slate-100 bg-slate-50 flex flex-wrap items-center justify-between gap-2">
+      <button id="mIcs" class="bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 font-semibold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2"><i class="fa-regular fa-calendar-plus"></i> Adicionar ao calendário (.ics)</button>
+      <a id="mLink" href="#" target="_blank" rel="noopener" class="bg-[#F8820A] hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2">Site / fonte oficial <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+    </div>
+  </div>
+</div>
 
-                return matchesSearch && matchesCat && matchesLoc && matchesStat && matchesSrc;
-            });
+<!-- SOURCES MODAL -->
+<div id="sourcesModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+  <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+    <div class="p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+      <h2 class="text-lg font-bold text-[#06418A]"><i class="fa-solid fa-link text-[#F8820A]"></i> Fontes monitoradas</h2>
+      <button data-close="sourcesModal" class="text-slate-400 hover:text-slate-700 p-2 rounded-lg bg-slate-200/60"><i class="fa-solid fa-xmark text-lg"></i></button>
+    </div>
+    <div id="sourcesList" class="p-5 overflow-y-auto grid sm:grid-cols-2 gap-2 text-xs"></div>
+  </div>
+</div>
 
-            // Ordenação por data mais próxima
-            filtered.sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
+<!-- ADD MODAL -->
+<div id="addModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+  <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
+    <div class="p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+      <h2 class="text-lg font-bold text-[#06418A]"><i class="fa-solid fa-calendar-plus text-[#F8820A]"></i> Adicionar evento</h2>
+      <button data-close="addModal" class="text-slate-400 hover:text-slate-700 p-2 rounded-lg bg-slate-200/60"><i class="fa-solid fa-xmark text-lg"></i></button>
+    </div>
+    <form id="addForm" class="p-5 space-y-3 text-xs overflow-y-auto">
+      <div><label class="lbl">Nome do evento *</label><input id="aTitle" required class="inp" placeholder="Ex: Feira X 2027"></div>
+      <div class="grid grid-cols-2 gap-3">
+        <div><label class="lbl">Formato *</label><select id="aType" class="inp"></select></div>
+        <div><label class="lbl">Tema principal *</label><select id="aTag" class="inp"></select></div>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div><label class="lbl">Região *</label><select id="aRegion" class="inp"></select></div>
+        <div><label class="lbl">Cidade / UF *</label><input id="aCity" required class="inp" placeholder="Ex: Recife - PE"></div>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div><label class="lbl">Início *</label><input id="aStart" type="date" required class="inp"></div>
+        <div><label class="lbl">Fim *</label><input id="aEnd" type="date" required class="inp"></div>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div><label class="lbl">Networking (estrelas) *</label><select id="aStars" class="inp"><option>5</option><option>4</option><option selected>3</option><option>2</option><option>1</option></select></div>
+        <div><label class="lbl">Link</label><input id="aLink" type="url" class="inp" placeholder="https://"></div>
+      </div>
+      <div><label class="lbl">Descrição / por que ir</label><textarea id="aDesc" rows="3" class="inp"></textarea></div>
+      <p class="text-[11px] text-slate-400">Eventos adicionados aqui ficam na sessão aberta. Use "Exportar CSV" para guardar.</p>
+      <div class="flex justify-end gap-2 pt-1">
+        <button type="button" data-close="addModal" class="bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-xl">Cancelar</button>
+        <button type="submit" class="bg-[#F8820A] hover:bg-orange-600 text-white font-bold px-5 py-2 rounded-xl">Salvar</button>
+      </div>
+    </form>
+  </div>
+</div>
 
-            // Atualiza Métricas
-            statTotalEvents.textContent = eventsData.length;
-            statOpenEvents.textContent = eventsData.filter(e => e.status === 'Inscrições Abertas').length;
-            statLogisticsEvents.textContent = eventsData.filter(e => ['Logística', 'Supply Chain', 'Intralogística', 'Armazenagem'].includes(e.category)).length;
-            statLatamEvents.textContent = eventsData.filter(e => e.region === 'LATAM').length;
+<style>
+  .sel { background:#F8FAFC; border:1px solid #E2E8F0; font-size:12px; color:#334155; border-radius:12px; padding:10px 10px; width:100%; }
+  .sel:focus, .inp:focus { outline:none; border-color:#F8820A; }
+  .inp { width:100%; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:12px; padding:9px; color:#1E293B; }
+  .lbl { display:block; font-weight:700; color:#334155; margin-bottom:4px; }
+</style>
 
-            eventsGrid.innerHTML = '';
+<script>
+// ======================= FONTES =======================
+const SOURCES = [
+  { id:'ntradeshows', name:'nTradeshows – Transporte & Logística Brasil', scope:'Agregador', url:'https://www.ntradeshows.com/transport-logistics/brazil/' },
+  { id:'neventum', name:'Neventum – Feiras de Logística no Brasil', scope:'Agregador', url:'https://www.neventum.com/tradeshows/logistics/brazil' },
+  { id:'showsbee', name:'ShowsBee – Calendário de feiras', scope:'Agregador', url:'https://www.showsbee.com/fairs/Logistique-Brazil.html' },
+  { id:'fazcomex', name:'Fazcomex – Feiras de Comex 2027', scope:'Brasil', url:'https://www.fazcomex.com.br/comex/feiras-e-eventos-do-comercio-exterior-em-2027/' },
+  { id:'intermodal', name:'Intermodal South America (Informa)', scope:'Oficial', url:'https://www.intermodal.com.br/en/' },
+  { id:'fispal', name:'Fispal Tecnologia (Informa)', scope:'Oficial', url:'https://www.fispaltecnologia.com.br/en/' },
+  { id:'datamar', name:'DatamarNews – Logística & Portos', scope:'Imprensa', url:'https://datamarnews.com/noticias/intra-log-expo-doubles-in-size-for-2026-with-automation-technology-and-international-reach-at-its-core/' },
+  { id:'portalamazonia', name:'Portal Amazônia – Logística Norte', scope:'Norte', url:'https://portalamazonia.com/tudo-sobre/logistica/' },
+  { id:'movimento', name:'Movimento Econômico – Logística NE', scope:'Nordeste', url:'https://movimentoeconomico.com.br/tag/multimodal-nordeste/' },
+  { id:'diariopernambuco', name:'Diário de Pernambuco – Economia', scope:'Nordeste', url:'https://www.diariodepernambuco.com.br/economia/2026/08/11720250-logistica-e-comercio-exterior-movimentam-recife-em-feira-com-foco-nos-desafios-do-setor.html' },
+  { id:'diarionordeste', name:'Diário do Nordeste – Coluna Egídio Serpa', scope:'Nordeste', url:'https://diariodonordeste.verdesmares.com.br/opiniao/colunistas/egidio-serpa/expolog-2026-tera-fala-do-economista-marcos-troyjo-na-abertura-1.3800171' },
+  { id:'ohoje', name:'O Hoje – Goiás (Centro-Oeste)', scope:'Centro-Oeste', url:'https://ohoje.com/2026/07/22/rio-verde-sedia-pela-segunda-vez-um-dos-principais-foruns-de-logistica-e-infraestrutura-do-brasil/' },
+  { id:'ilos', name:'ILOS – Fórum Internacional Supply Chain', scope:'Oficial', url:'https://visitesaopaulo.com/evento/forum-internacional-supply-chain-2026/' },
+  { id:'dgabc', name:'DGABC – Fenatran 2026', scope:'Imprensa', url:'https://www.dgabc.com.br/Noticia/4367810/edicao-2026-da-fenatran-reune-13-montadoras-e-mais-de-700-marcas' },
+  { id:'logimat', name:'LogiMAT Stuttgart', scope:'Internacional', url:'https://www.logimat-messe.de/en/node/77974' },
+  { id:'mhi', name:'MHI / MODEX / ProMat', scope:'Internacional', url:'https://www.mhi.org/' },
+  { id:'mapa-das-feiras', name:'Mapa das Feiras', scope:'Brasil', url:'https://www.mapadasfeiras.com.br/' },
+  { id:'feiras-do-brasil', name:'Feiras do Brasil', scope:'Brasil', url:'https://www.feirasdobrasil.com.br/' },
+  { id:'informa-markets', name:'Informa Markets', scope:'Global', url:'https://www.informamarkets.com/' },
+  { id:'events-eye', name:'EventsEye', scope:'Internacional', url:'https://www.eventseye.com/' },
+  { id:'10times', name:'10Times', scope:'Internacional', url:'https://10times.com/' },
+  { id:'logistics-latam', name:'Logistics Summit LATAM', scope:'LATAM', url:'https://www.logisticssummit.com/' },
+  { id:'manual', name:'Cadastro manual BSA', scope:'Interno', url:'https://www.bertoliniarmazenagem.com.br' }
+];
 
-            if (filtered.length === 0) {
-                emptyState.classList.remove('hidden');
-                return;
-            } else {
-                emptyState.classList.add('hidden');
-            }
+const REGIONS = {
+  S:{label:'Sul', color:'bg-blue-50 text-[#06418A] border-blue-200', bar:'#06418A'},
+  SE:{label:'Sudeste', color:'bg-sky-50 text-sky-700 border-sky-200', bar:'#0284C7'},
+  NE:{label:'Nordeste', color:'bg-amber-50 text-amber-700 border-amber-200', bar:'#D97706'},
+  N:{label:'Norte', color:'bg-emerald-50 text-emerald-700 border-emerald-200', bar:'#059669'},
+  CO:{label:'Centro-Oeste', color:'bg-lime-50 text-lime-700 border-lime-200', bar:'#65A30D'},
+  LATAM:{label:'LATAM', color:'bg-purple-50 text-purple-700 border-purple-200', bar:'#7C3AED'},
+  INT:{label:'Internacional', color:'bg-slate-100 text-slate-600 border-slate-200', bar:'#64748B'}
+};
+const TAGS = ['Intralogística','Armazenagem & Verticalização','Empilhadeiras & Movimentação','Automação & Sorters','Transporte & Transportadoras','Supply Chain','Comércio Exterior & Portos','Food & Beverage','Varejo & CDs','Agronegócio','Pharma','Indústria'];
+const TYPES = ['Feira','Congresso / Fórum','Summit / Workshop'];
 
-            filtered.forEach(ev => {
-                let badgeClass = 'bg-blue-50 text-[#06418A] border-blue-200';
-                if (ev.status === 'Inscrições Abertas') badgeClass = 'bg-emerald-50 text-emerald-700 border-emerald-200';
-                if (ev.status === 'Confirmado') badgeClass = 'bg-amber-50 text-orange-700 border-orange-200';
-                if (ev.status === 'Em breve') badgeClass = 'bg-slate-100 text-slate-600 border-slate-200';
+// ======================= EVENTOS =======================
+// stars: potencial de networking para a BSA (1-5). confirmed:false = data a confirmar.
+let events = [
+  // ---------- 2026 (próximo) ----------
+  { id:'expolog26', title:'Expolog 2026 – Feira Internacional de Logística (21ª ed.)', type:'Feira', tags:['Transporte & Transportadoras','Comércio Exterior & Portos','Supply Chain'], region:'NE', city:'Fortaleza - CE', venue:'Centro de Eventos do Ceará', start:'2026-11-23', end:'2026-11-24', confirmed:true, organizer:'Prática Eventos', size:'Edição 2025: ~15 mil m², área e expositores dobrados', stars:4,
+    desc:'Maior e mais tradicional feira de logística do Nordeste, com foco em portos (Pecém/Mucuripe), economia do mar, comércio exterior e operadores logísticos.',
+    net:'Concentra embarcadores, operadores logísticos e indústrias do CE/RN/PI que estão expandindo CDs ligados ao Pecém. Pouca concorrência direta de fabricantes de estruturas.',
+    action:'É na próxima semana: agendar visitas a operadores logísticos e indústrias do Pecém; levar catálogo de porta-paletes e mezaninos.', link:'https://diariodonordeste.verdesmares.com.br/opiniao/colunistas/egidio-serpa/expolog-2026-tera-fala-do-economista-marcos-troyjo-na-abertura-1.3800171', source:'diarionordeste' },
 
-                let regionBadge = '';
-                if (ev.region === 'RS' || ev.region === 'SC') {
-                    regionBadge = '<span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-blue-50 text-[#06418A] border border-blue-200">Sul (RS/SC)</span>';
-                } else if (ev.region === 'LATAM') {
-                    regionBadge = '<span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-purple-50 text-purple-700 border border-purple-200">LATAM</span>';
-                } else if (ev.region === 'INT') {
-                    regionBadge = '<span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">Internacional</span>';
-                }
+  // ---------- 2027 ----------
+  { id:'fimec27', title:'FIMEC 2027 – Couros, Máquinas e Componentes', type:'Feira', tags:['Indústria'], region:'S', city:'Novo Hamburgo - RS', venue:'Fenac', start:'2027-03-09', end:'2027-03-11', confirmed:true, organizer:'Fenac', size:'Polo calçadista e de manufatura', stars:2,
+    desc:'Feira industrial do polo coureiro-calçadista. Demanda por armazenagem de insumos e produto acabado.',
+    net:'Networking regional com indústrias do Vale dos Sinos; público pouco focado em logística.', action:'Visita de prospecção de 1 dia.', link:'https://www.fazcomex.com.br/comex/feiras-e-eventos-do-comercio-exterior-em-2027/', source:'fazcomex' },
 
-                const card = document.createElement('div');
-                card.className = 'bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between group';
-                card.innerHTML = `
-                    <div>
-                        <div class="flex items-center justify-between gap-2 mb-3">
-                            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-orange-50 text-[#F8820A] border border-orange-200">
-                                ${ev.category}
-                            </span>
-                            <div class="flex items-center gap-1.5">
-                                ${regionBadge}
-                                <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full border ${badgeClass}">
-                                    ${ev.status}
-                                </span>
-                            </div>
-                        </div>
+  { id:'promat27', title:'ProMat 2027 – Material Handling & Logistics Show', type:'Feira', tags:['Intralogística','Automação & Sorters','Empilhadeiras & Movimentação'], region:'INT', city:'Chicago - IL (EUA)', venue:'McCormick Place', start:'2027-03-15', end:'2027-03-18', confirmed:false, organizer:'MHI', size:'Uma das maiores feiras de intralogística das Américas', stars:3,
+    desc:'Vitrine global de AS/RS, shuttles, AMRs, sorters e software de armazém.',
+    net:'Benchmarking tecnológico e contato com fabricantes globais (parcerias/representação). Poucos clientes finais brasileiros.', action:'Missão técnica de engenharia/produto.', link:'https://www.mhi.org/', source:'mhi' },
 
-                        <h3 class="text-base font-bold text-[#06418A] group-hover:text-[#F8820A] transition mb-2 line-clamp-2">
-                            ${ev.title}
-                        </h3>
+  { id:'logimat27', title:'LogiMAT 2027 – Feira Internacional de Intralogística', type:'Feira', tags:['Intralogística','Automação & Sorters','Armazenagem & Verticalização'], region:'INT', city:'Stuttgart (Alemanha)', venue:'Messe Stuttgart', start:'2027-03-16', end:'2027-03-18', confirmed:true, organizer:'Euroexpo', size:'Maior feira anual de intralogística da Europa', stars:3,
+    desc:'Referência europeia em sistemas de armazenagem, transelevadores, sorters e WMS.',
+    net:'Tendências e parceiros tecnológicos europeus; útil para roadmap de produto.', action:'Missão técnica; mapear parceiros de automação.', link:'https://www.logimat-messe.de/en/node/77974', source:'logimat' },
 
-                        <div class="space-y-1.5 text-xs text-slate-500 mb-4">
-                            <div class="flex items-center gap-2">
-                                <i class="fa-regular fa-calendar text-[#F8820A] w-4"></i>
-                                <span class="font-medium text-slate-700">${ev.date}</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <i class="fa-solid fa-location-dot text-slate-400 w-4"></i>
-                                <span>${ev.location}</span>
-                            </div>
-                        </div>
+  { id:'nnlog27', title:'NN Logística 2027 – Feira da Indústria Fluvial e Logística', type:'Feira', tags:['Transporte & Transportadoras','Comércio Exterior & Portos'], region:'N', city:'Manaus - AM', venue:'Centro de Convenções Vasco Vasques', start:'2027-04-06', end:'2027-04-08', confirmed:false, organizer:'NN Logística', size:'2026: +9 mil visitantes, ~R$ 520 mi em negócios', stars:3,
+    desc:'Feira focada na logística fluvial e na cadeia que abastece o Polo Industrial de Manaus.',
+    net:'Acesso a operadores e indústrias da Zona Franca, que têm alta demanda de armazenagem verticalizada.', action:'Visitar e combinar com agenda de clientes do PIM.', link:'https://portalamazonia.com/economia/nn-logistica-2026-manaus-hub-fluvial/', source:'portalamazonia' },
 
-                        <p class="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
-                            ${ev.description}
-                        </p>
-                    </div>
+  { id:'intermodal27', title:'Intermodal South America 2027 (+ Interlog Summit)', type:'Feira', tags:['Transporte & Transportadoras','Comércio Exterior & Portos','Supply Chain','Intralogística'], region:'SE', city:'São Paulo - SP', venue:'Distrito Anhembi', start:'2027-04-13', end:'2027-04-15', confirmed:true, organizer:'Informa Markets', size:'Profissionais de +90 países', stars:5,
+    desc:'Principal feira de logística, transporte de cargas e comércio exterior da América Latina, com o congresso Interlog Summit em paralelo.',
+    net:'Reúne diretores de logística, operadores logísticos (3PL), transportadoras e portos. Muitos estão planejando CDs novos.', action:'Expor ou fazer visita estruturada com 15–20 reuniões agendadas; acompanhar a lista de expositores 2027.', link:'https://www.intermodal.com.br/en/', source:'intermodal' },
 
-                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between mt-auto">
-                        <span class="text-[11px] text-slate-400 truncate max-w-[150px]">Org: ${ev.organizer}</span>
-                        <button onclick="openDetail('${ev.id}')" class="text-xs font-bold text-[#06418A] hover:text-[#F8820A] transition flex items-center gap-1.5 bg-blue-50 hover:bg-orange-50 px-3 py-1.5 rounded-xl border border-blue-100 hover:border-orange-200">
-                            Detalhes <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </button>
-                    </div>
-                `;
-                eventsGrid.appendChild(card);
-            });
-        }
+  { id:'logsummitmx27', title:'Logistics Summit & Expo México 2027', type:'Summit / Workshop', tags:['Supply Chain','Intralogística'], region:'LATAM', city:'Cidade do México (México)', venue:'A confirmar', start:'2027-04-14', end:'2027-04-15', confirmed:false, organizer:'Logistics Summit LATAM', size:'Evento de referência no México', stars:2,
+    desc:'Fórum de supply chain e intralogística do México.', net:'Relevante apenas se houver plano de exportação para o México.', action:'Monitorar.', link:'https://www.logisticssummit.com/', source:'logistics-latam' },
 
-        // Modal Handlers
-        window.openDetail = function(id) {
-            const ev = eventsData.find(e => e.id === id);
-            if (!ev) return;
+  { id:'agrishow27', title:'Agrishow 2027 – Tecnologia Agrícola', type:'Feira', tags:['Agronegócio','Armazenagem & Verticalização'], region:'SE', city:'Ribeirão Preto - SP', venue:'Polo Agrishow', start:'2027-04-26', end:'2027-04-30', confirmed:false, organizer:'Informa Markets', size:'Maior feira agro do país', stars:3,
+    desc:'Principal vitrine do agronegócio, com demanda de armazenagem de insumos, peças e defensivos.',
+    net:'Revendas, cooperativas e fabricantes de máquinas com grandes CDs de peças.', action:'Visita focada em cooperativas e fabricantes de máquinas agrícolas.', link:'https://www.agrishow.com.br', source:'informa-markets' },
 
-            document.getElementById('modalCategory').textContent = ev.category;
-            document.getElementById('modalTitle').textContent = ev.title;
-            document.getElementById('modalOrganizer').textContent = `Organizado por ${ev.organizer} (Fonte sysINFO)`;
-            document.getElementById('modalDate').textContent = ev.date;
-            document.getElementById('modalLocation').textContent = ev.location;
-            document.getElementById('modalDescription').textContent = ev.description;
-            
-            const badge = document.getElementById('modalBadge');
-            badge.textContent = ev.status;
-            badge.className = 'text-xs font-semibold px-3 py-1 rounded-full ' + 
-                (ev.status === 'Inscrições Abertas' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-orange-50 text-orange-700 border border-orange-200');
+  { id:'apas27', title:'APAS Show 2027 – Varejo Supermercadista', type:'Feira', tags:['Varejo & CDs','Food & Beverage'], region:'SE', city:'São Paulo - SP', venue:'Expo Center Norte', start:'2027-05-17', end:'2027-05-20', confirmed:true, organizer:'APAS', size:'Maior feira supermercadista das Américas', stars:4,
+    desc:'Encontro de redes de supermercados, atacarejos e indústria de bens de consumo.',
+    net:'Diretores de redes varejistas e atacarejos que operam CDs próprios. Ótimo para porta-paletes, drive-in e flow rack.', action:'Visita com agenda prévia com redes regionais (SP, Sul, NE).', link:'https://www.showsbee.com/fairs/89313-Feira-APAS-2027.html', source:'showsbee' },
 
-            document.getElementById('modalLink').href = ev.link;
-            detailModal.classList.remove('hidden');
-        }
+  { id:'transpoam27', title:'TranspoAmazônia 2027 – Feira e Congresso de Transporte, Logística e Indústria Naval', type:'Feira', tags:['Transporte & Transportadoras','Comércio Exterior & Portos','Supply Chain'], region:'N', city:'Manaus - AM', venue:'Centro de Convenções Vasco Vasques', start:'2027-05-19', end:'2027-05-21', confirmed:true, organizer:'Fetramaz', size:'2026: +15 mil visitantes, +R$ 1 bi em negócios', stars:4,
+    desc:'Maior feira de logística da Região Norte. A edição 2027 inclui indústria naval e cabotagem.',
+    net:'Transportadoras, operadores e indústrias da ZFM. 90% dos expositores de 2026 já confirmaram retorno.', action:'Avaliar estande compartilhado com revenda local; agendar visitas ao PIM.', link:'https://portalamazonia.com/amazonia/industria-naval-transpoamazonia/', source:'portalamazonia' },
 
-        closeDetailModal.addEventListener('click', () => detailModal.classList.add('hidden'));
-        detailModal.addEventListener('click', (e) => { if(e.target === detailModal) detailModal.classList.add('hidden'); });
+  { id:'brasillog27', title:'Brasil LOG 2027 – Feira Internacional de Logística', type:'Feira', tags:['Empilhadeiras & Movimentação','Transporte & Transportadoras','Intralogística'], region:'SE', city:'Jundiaí - SP', venue:'Parque da Uva', start:'2027-05-19', end:'2027-05-21', confirmed:false, organizer:'Brasil LOG', size:'2026: ~90 expositores, 5–7 mil visitantes', stars:3,
+    desc:'Feira no principal eixo de CDs do país (Jundiaí/Cajamar), com test drive de empilhadeiras e caminhões.',
+    net:'Gerentes de CD e operadores do eixo Anhanguera-Bandeirantes; contato com fabricantes de empilhadeiras (parcerias).', action:'Visita de 1 dia + prospecção de condomínios logísticos da região.', link:'https://datamarnews.com/noticias/save-the-date-11th-brasil-log-to-take-place-may-27-29-in-one-of-brazils-main-logistics-hubs/', source:'datamar' },
 
-        openAddModalBtn.addEventListener('click', () => addModal.classList.remove('hidden'));
-        closeAddModal.addEventListener('click', () => addModal.classList.add('hidden'));
-        cancelAddBtn.addEventListener('click', () => addModal.classList.add('hidden'));
-        addModal.addEventListener('click', (e) => { if(e.target === addModal) addModal.classList.add('hidden'); });
+  { id:'fispaltec27', title:'Fispal Tecnologia 2027 – Embalagens, Processos e Logística para Alimentos e Bebidas', type:'Feira', tags:['Food & Beverage','Indústria','Armazenagem & Verticalização'], region:'SE', city:'São Paulo - SP', venue:'São Paulo Expo', start:'2027-06-22', end:'2027-06-25', confirmed:true, organizer:'Informa Markets', size:'2026: +48 mil visitantes, +500 expositores, 58 mil m²', stars:4,
+    desc:'Principal feira de tecnologia para a indústria de alimentos e bebidas, junto com a TecnoCarne.',
+    net:'Gerentes industriais e de supply chain de alimentos e bebidas: drive-in, câmaras frias, pallet flow e verticalização.', action:'Visita com 2 dias de agenda; levar cases de armazenagem refrigerada.', link:'https://www.fispaltecnologia.com.br/en/', source:'fispal' },
 
-        // Cadastro manual de novos eventos
-        addEventForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const newEv = {
-                id: String(Date.now()),
-                title: document.getElementById('addTitle').value,
-                category: document.getElementById('addCategory').value,
-                region: document.getElementById('addRegion').value,
-                location: document.getElementById('addLocation').value,
-                startDate: document.getElementById('addStartDate').value,
-                date: document.getElementById('addDateText').value,
-                status: document.getElementById('addStatus').value,
-                organizer: 'Bertolini BSA Executivo',
-                sourceId: 'gov-br',
-                description: document.getElementById('addDescription').value || 'Evento adicionado manualmente ao radar executivo estratégico.',
-                link: 'https://www.bertoliniarmazenagem.com.br'
-            };
+  { id:'fispalfs27', title:'Fispal Food Service 2027', type:'Feira', tags:['Food & Beverage','Varejo & CDs'], region:'SE', city:'São Paulo - SP', venue:'Expo Center Norte (a confirmar)', start:'2027-06-08', end:'2027-06-11', confirmed:false, organizer:'Informa Markets', size:'Referência em food service', stars:3,
+    desc:'Feira da cadeia de food service: distribuidores, indústrias e redes.', net:'Distribuidores de food service com CDs refrigerados.', action:'Confirmar data no site oficial; visita complementar à Fispal Tecnologia.', link:'https://www.fispalfoodservice.com.br', source:'informa-markets' },
 
-            eventsData.push(newEv);
-            renderEvents();
-            addModal.classList.add('hidden');
-            addEventForm.reset();
-        });
+  { id:'coexport27', title:'Centro-Oeste Export 2027', type:'Congresso / Fórum', tags:['Agronegócio','Comércio Exterior & Portos','Supply Chain'], region:'CO', city:'Rio Verde - GO', venue:'A confirmar', start:'2027-07-22', end:'2027-07-23', confirmed:false, organizer:'Grupo Brasil Export', size:'Fórum de autoridades, investidores e terminais', stars:3,
+    desc:'Fórum de logística e infraestrutura do Centro-Oeste, com visitas técnicas a terminais (edição 2026: 23–24/jul).',
+    net:'Agroindústrias, tradings e terminais do Centro-Oeste, região com CDs e armazéns em expansão.', action:'Participar como ouvinte; boa porta para o mercado de GO/MT.', link:'https://ohoje.com/2026/07/22/rio-verde-sedia-pela-segunda-vez-um-dos-principais-foruns-de-logistica-e-infraestrutura-do-brasil/', source:'ohoje' },
 
-        // Event Listeners
-        searchInput.addEventListener('input', renderEvents);
-        categoryFilter.addEventListener('change', renderEvents);
-        locationFilter.addEventListener('change', renderEvents);
-        statusFilter.addEventListener('change', renderEvents);
-        sourceFilter.addEventListener('change', renderEvents);
+  { id:'multimodal27', title:'Multimodal Nordeste 2027 – Logística e Comércio Exterior', type:'Feira', tags:['Transporte & Transportadoras','Comércio Exterior & Portos','Supply Chain'], region:'NE', city:'Recife - PE', venue:'Recife Expo Center', start:'2027-08-03', end:'2027-08-05', confirmed:true, organizer:'Insight Feiras & Negócios', size:'2026: +140 marcas, ~9 mil visitantes', stars:4,
+    desc:'Feira de logística em crescimento (área +30% em 2026), ligada ao Porto do Recife e a Suape.',
+    net:'Indústrias e operadores de PE/PB/AL e do complexo de Suape. Um dos melhores pontos de entrada no Nordeste.', action:'Avaliar estande; agendar visitas em Suape e no Cabo de Santo Agostinho.', link:'https://movimentoeconomico.com.br/tag/multimodal-nordeste/', source:'movimento' },
 
-        // Timer de Atualização Automática
-        setInterval(() => {
-            if (isPaused) return;
-            countdownValue--;
-            if (countdownValue <= 0) {
-                countdownValue = 30;
-                renderEvents();
-            }
-            timerCountdownEl.textContent = countdownValue + 's';
-        }, 1000);
+  { id:'logistique27', title:'Logistique 2027 – Feira de Logística, Transporte e Comércio Exterior', type:'Feira', tags:['Transporte & Transportadoras','Comércio Exterior & Portos','Intralogística','Armazenagem & Verticalização'], region:'S', city:'Balneário Camboriú - SC', venue:'Expocentro BC (a confirmar)', start:'2027-08-10', end:'2027-08-12', confirmed:true, organizer:'Zoom Feiras & Eventos', size:'Maior feira de logística do Sul', stars:5,
+    desc:'Principal feira de logística do Sul, no polo portuário Itajaí–Navegantes–Itapoá.',
+    net:'É o território direto da BSA: tradings, importadoras, transportadoras e indústrias de SC/PR/RS. Alta chance de reuniões que viram proposta.', action:'Prioridade para expor: estande com demonstração de porta-paletes e mezanino; convidar clientes da carteira SC.', link:'https://www.fazcomex.com.br/comex/feiras-e-eventos-do-comercio-exterior-em-2027/', source:'fazcomex' },
 
-        toggleAutoRefreshBtn.addEventListener('click', () => {
-            isPaused = !isPaused;
-            toggleAutoRefreshBtn.textContent = isPaused ? 'Retomar' : 'Pausar';
-        });
+  { id:'ilos27', title:'Fórum Internacional Supply Chain ILOS 2027', type:'Congresso / Fórum', tags:['Supply Chain','Varejo & CDs'], region:'SE', city:'São Paulo - SP', venue:'WTC Events Center (padrão)', start:'2027-08-18', end:'2027-08-19', confirmed:false, organizer:'ILOS', size:'Principal fórum de diretores de supply chain do Brasil', stars:5,
+    desc:'Congresso com cases de grandes empresas e debates sobre infraestrutura e supply chain (edição 2026: 19–20/ago).',
+    net:'Público C-level e diretores de logística de indústria e varejo, que decidem projetos de CD.', action:'Inscrever 1–2 executivos; avaliar patrocínio de coffee/networking.', link:'https://visitesaopaulo.com/evento/forum-internacional-supply-chain-2026/', source:'ilos' },
 
-        manualRefreshBtn.addEventListener('click', () => {
-            countdownValue = 30;
-            renderEvents();
-        });
+  { id:'intralog27', title:'INTRA-LOG Expo South America 2027', type:'Feira', tags:['Intralogística','Armazenagem & Verticalização','Automação & Sorters','Empilhadeiras & Movimentação'], region:'SE', city:'São Paulo - SP', venue:'Expo Center Norte', start:'2027-09-28', end:'2027-09-30', confirmed:true, organizer:'Interlink Exhibitions', size:'2026: ~400 marcas e +8,5 mil visitantes esperados', stars:5,
+    desc:'Feira B2B dedicada a intralogística, automação, robótica, sorters, empilhadeiras e armazenagem. Dobrou de tamanho em 2026.',
+    net:'Público 100% aderente ao portfólio BSA: gerentes de CD, engenharia de armazéns e operadores que buscam verticalização.', action:'Prioridade máxima para expor; reservar estande cedo e preparar lançamento de produto.', link:'https://www.neventum.com/tradeshows/intra-log', source:'neventum' },
 
-        // Render inicial
-        window.addEventListener('DOMContentLoaded', renderEvents);
-    </script>
+  { id:'ntexpo27', title:'NT Expo 2027 – Negócios nos Trilhos', type:'Feira', tags:['Transporte & Transportadoras','Indústria'], region:'SE', city:'São Paulo - SP', venue:'Distrito Anhembi', start:'2027-10-19', end:'2027-10-21', confirmed:true, organizer:'NT Expo', size:'Feira do setor metroferroviário', stars:2,
+    desc:'Feira do setor ferroviário de cargas e passageiros.', net:'Nicho: armazéns de peças de concessionárias ferroviárias.', action:'Monitorar.', link:'https://www.ntradeshows.com/logistics/brazil/', source:'ntradeshows' },
+
+  { id:'expolog27', title:'Expolog 2027 – Feira Internacional de Logística (22ª ed.)', type:'Feira', tags:['Transporte & Transportadoras','Comércio Exterior & Portos'], region:'NE', city:'Fortaleza - CE', venue:'Centro de Eventos do Ceará', start:'2027-11-22', end:'2027-11-23', confirmed:false, organizer:'Prática Eventos', size:'Feira anual, realizada em novembro', stars:4,
+    desc:'Próxima edição da maior feira de logística do Nordeste. Data prevista pelo histórico de novembro.', net:'Ver Expolog 2026.', action:'Confirmar data após a edição 2026.', link:'https://diariodonordeste.verdesmares.com.br/opiniao/colunistas/egidio-serpa/expolog-2026-tera-fala-do-economista-marcos-troyjo-na-abertura-1.3800171', source:'diarionordeste' },
+
+  // ---------- 2028 ----------
+  { id:'movimat28', title:'Movimat 2028 – Intralogística, Armazenagem e Movimentação', type:'Feira', tags:['Intralogística','Empilhadeiras & Movimentação','Armazenagem & Verticalização','Automação & Sorters'], region:'SE', city:'São Paulo - SP', venue:'São Paulo Expo', start:'2028-10-17', end:'2028-10-21', confirmed:false, organizer:'Movimat', size:'Feira histórica de intralogística (edição 2026 junto com a Fenatran)', stars:5,
+    desc:'Tradicional feira de movimentação e armazenagem de materiais. A edição 2026 aconteceu de 9 a 13/nov.',
+    net:'Empilhadeiras, estruturas, sorters e automação: compradores muito qualificados para a BSA.', action:'Planejar orçamento 2028; data a confirmar (previsão: outubro/2028).', link:'https://www.neventum.com/tradeshows/movimat-3', source:'neventum' },
+
+  { id:'fenatran28', title:'Fenatran 2028 – Salão Internacional do Transporte Rodoviário de Cargas', type:'Feira', tags:['Transporte & Transportadoras'], region:'SE', city:'São Paulo - SP', venue:'São Paulo Expo', start:'2028-11-06', end:'2028-11-10', confirmed:false, organizer:'RX', size:'2026: +700 marcas, 13 montadoras, +100 mil m²', stars:4,
+    desc:'Maior feira de transporte de cargas da América Latina. Bienal.',
+    net:'Donos e diretores de transportadoras, muitos com armazéns e cross-docking próprios.', action:'Visita estruturada com foco em transportadoras que têm CD próprio.', link:'https://www.neventum.com/tradeshows/fenatran', source:'dgabc' },
+
+  // ---------- HISTÓRICO 2026 (realizados) ----------
+  { id:'expodireto26', title:'Expodireto Cotrijal 2026', type:'Feira', tags:['Agronegócio'], region:'S', city:'Não-Me-Toque - RS', venue:'Parque da Expodireto', start:'2026-03-23', end:'2026-03-27', confirmed:true, organizer:'Cotrijal', size:'Grande feira agro do Sul', stars:3, desc:'Feira do agronegócio com foco em grãos e armazenagem agrícola.', net:'Cooperativas gaúchas.', action:'Avaliar a edição 2027.', link:'https://www.expodireto.cotrijal.com.br', source:'mapa-das-feiras' },
+  { id:'modex26', title:'MODEX 2026', type:'Feira', tags:['Intralogística','Automação & Sorters'], region:'INT', city:'Atlanta - GA (EUA)', venue:'Georgia World Congress Center', start:'2026-04-13', end:'2026-04-16', confirmed:true, organizer:'MHI', size:'Feira global de intralogística', stars:3, desc:'Robótica, AS/RS e shuttles.', net:'Benchmarking.', action:'Próxima: ProMat 2027.', link:'https://www.mhi.org/', source:'mhi' },
+  { id:'nnlog26', title:'NN Logística 2026', type:'Feira', tags:['Transporte & Transportadoras'], region:'N', city:'Manaus - AM', venue:'Centro de Convenções Vasco Vasques', start:'2026-04-22', end:'2026-04-24', confirmed:true, organizer:'NN Logística', size:'+9 mil visitantes, ~R$ 520 mi', stars:3, desc:'Logística fluvial e da ZFM.', net:'Indústrias do PIM.', action:'Ver edição 2027.', link:'https://portalamazonia.com/economia/nn-logistica-2026-manaus-hub-fluvial/', source:'portalamazonia' },
+  { id:'brasillog26', title:'Brasil LOG 2026', type:'Feira', tags:['Empilhadeiras & Movimentação','Transporte & Transportadoras'], region:'SE', city:'Jundiaí - SP', venue:'Parque da Uva', start:'2026-05-27', end:'2026-05-29', confirmed:true, organizer:'Brasil LOG', size:'~90 expositores', stars:3, desc:'11ª edição.', net:'Eixo de CDs de Jundiaí.', action:'Ver edição 2027.', link:'https://datamarnews.com/noticias/save-the-date-11th-brasil-log-to-take-place-may-27-29-in-one-of-brazils-main-logistics-hubs/', source:'datamar' },
+  { id:'coexport26', title:'Centro-Oeste Export 2026', type:'Congresso / Fórum', tags:['Agronegócio','Comércio Exterior & Portos'], region:'CO', city:'Rio Verde - GO', venue:'Prime Hotel Rio Verde', start:'2026-07-23', end:'2026-07-24', confirmed:true, organizer:'Grupo Brasil Export', size:'Fórum + visitas técnicas', stars:3, desc:'Fórum de logística do Centro-Oeste.', net:'Agro e terminais.', action:'Ver edição 2027.', link:'https://ohoje.com/2026/07/22/rio-verde-sedia-pela-segunda-vez-um-dos-principais-foruns-de-logistica-e-infraestrutura-do-brasil/', source:'ohoje' },
+  { id:'multimodal26', title:'Multimodal Nordeste 2026', type:'Feira', tags:['Transporte & Transportadoras','Comércio Exterior & Portos'], region:'NE', city:'Recife - PE', venue:'Recife Expo Center', start:'2026-08-04', end:'2026-08-06', confirmed:true, organizer:'Insight Feiras & Negócios', size:'+140 marcas, ~9 mil visitantes', stars:4, desc:'3ª edição.', net:'Suape e indústria de PE.', action:'Ver edição 2027.', link:'https://www.diariodepernambuco.com.br/economia/2026/08/11720250-logistica-e-comercio-exterior-movimentam-recife-em-feira-com-foco-nos-desafios-do-setor.html', source:'diariopernambuco' },
+  { id:'logistique26', title:'Logistique 2026', type:'Feira', tags:['Transporte & Transportadoras','Comércio Exterior & Portos'], region:'S', city:'Balneário Camboriú - SC', venue:'Expocentro BC', start:'2026-08-11', end:'2026-08-13', confirmed:true, organizer:'Zoom Feiras & Eventos', size:'Maior feira de logística do Sul', stars:5, desc:'Edição 2026.', net:'Território BSA.', action:'Ver edição 2027.', link:'https://www.showsbee.com/fairs/98706-Logistique-Brazil-2026.html', source:'showsbee' },
+  { id:'ilos26', title:'Fórum Internacional Supply Chain ILOS 2026', type:'Congresso / Fórum', tags:['Supply Chain'], region:'SE', city:'São Paulo - SP', venue:'WTC Events Center', start:'2026-08-19', end:'2026-08-20', confirmed:true, organizer:'ILOS', size:'Fórum C-level', stars:5, desc:'Edição 2026.', net:'Diretores de supply chain.', action:'Ver edição 2027.', link:'https://visitesaopaulo.com/evento/forum-internacional-supply-chain-2026/', source:'ilos' },
+  { id:'intralog26', title:'INTRA-LOG Expo South America 2026', type:'Feira', tags:['Intralogística','Automação & Sorters','Empilhadeiras & Movimentação'], region:'SE', city:'São Paulo - SP', venue:'Expo Center Norte – Pavilhão Azul', start:'2026-09-15', end:'2026-09-17', confirmed:true, organizer:'Interlink Exhibitions', size:'~400 marcas, +8,5 mil visitantes (previsão)', stars:5, desc:'Edição que dobrou de tamanho.', net:'Público 100% intralogística.', action:'Ver edição 2027.', link:'https://datamarnews.com/noticias/intra-log-expo-doubles-in-size-for-2026-with-automation-technology-and-international-reach-at-its-core/', source:'datamar' },
+  { id:'movimat26', title:'Movimat 2026', type:'Feira', tags:['Intralogística','Empilhadeiras & Movimentação','Armazenagem & Verticalização'], region:'SE', city:'São Paulo - SP', venue:'São Paulo Expo', start:'2026-11-09', end:'2026-11-13', confirmed:true, organizer:'Movimat', size:'Junto com a Fenatran', stars:5, desc:'Edição 2026.', net:'Compradores de intralogística.', action:'Ver edição 2028.', link:'https://www.neventum.com/tradeshows/movimat-3', source:'neventum' },
+  { id:'fenatran26', title:'Fenatran 2026', type:'Feira', tags:['Transporte & Transportadoras'], region:'SE', city:'São Paulo - SP', venue:'São Paulo Expo', start:'2026-11-09', end:'2026-11-13', confirmed:true, organizer:'RX', size:'+700 marcas, 13 montadoras', stars:4, desc:'25ª edição.', net:'Transportadoras.', action:'Ver edição 2028.', link:'https://www.dgabc.com.br/Noticia/4367810/edicao-2026-da-fenatran-reune-13-montadoras-e-mais-de-700-marcas', source:'dgabc' }
+];
+
+// ======================= HELPERS =======================
+const MONTHS = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+const today = new Date(); today.setHours(0,0,0,0);
+const parse = s => { const [y,m,d] = s.split('-').map(Number); return new Date(y, m-1, d); };
+const fmtDate = ev => {
+  const a = parse(ev.start), b = parse(ev.end);
+  const s = a.getMonth()===b.getMonth()
+    ? `${String(a.getDate()).padStart(2,'0')} a ${String(b.getDate()).padStart(2,'0')}/${MONTHS[b.getMonth()]}/${b.getFullYear()}`
+    : `${String(a.getDate()).padStart(2,'0')}/${MONTHS[a.getMonth()]} a ${String(b.getDate()).padStart(2,'0')}/${MONTHS[b.getMonth()]}/${b.getFullYear()}`;
+  return ev.confirmed ? s : s + ' (prev.)';
+};
+const daysTo = ev => Math.round((parse(ev.start) - today) / 86400000);
+const isPast = ev => parse(ev.end) < today;
+const starsHtml = n => `<span class="stars" style="letter-spacing:1px;font-size:14px" title="${n} de 5">${'★'.repeat(n)}<span style="opacity:.3">${'★'.repeat(5-n)}</span></span>`;
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const srcName = id => (SOURCES.find(s => s.id===id) || {}).name || id;
+
+function statusOf(ev){
+  if (isPast(ev)) return {t:'Realizado', c:'bg-slate-100 text-slate-500 border-slate-200'};
+  const d = daysTo(ev);
+  if (d <= 0) return {t:'Acontecendo', c:'bg-red-50 text-red-600 border-red-200'};
+  if (d <= 30) return {t:`Em ${d} dias`, c:'bg-red-50 text-red-600 border-red-200'};
+  if (d <= 90) return {t:`Em ${d} dias`, c:'bg-emerald-50 text-emerald-700 border-emerald-200'};
+  return {t:`Em ${Math.round(d/30)} meses`, c:'bg-blue-50 text-[#06418A] border-blue-200'};
+}
+
+// ======================= FILTERS SETUP =======================
+const $ = id => document.getElementById(id);
+const fill = (sel, items) => items.forEach(([v,l]) => { const o=document.createElement('option'); o.value=v; o.textContent=l; sel.appendChild(o); });
+fill($('regionFilter'), Object.entries(REGIONS).map(([k,v]) => [k, v.label]));
+fill($('tagFilter'), TAGS.map(t => [t,t]));
+fill($('typeFilter'), TYPES.map(t => [t,t]));
+fill($('sourceFilter'), SOURCES.map(s => [s.id, `${s.name} (${s.scope})`]));
+fill($('aRegion'), Object.entries(REGIONS).map(([k,v]) => [k, v.label]));
+fill($('aTag'), TAGS.map(t => [t,t]));
+fill($('aType'), TYPES.map(t => [t,t]));
+$('todayLabel').textContent = today.toLocaleDateString('pt-BR');
+
+// ======================= RENDER =======================
+function getFiltered(){
+  const q = $('searchInput').value.toLowerCase().trim();
+  const r = $('regionFilter').value, t = $('tagFilter').value, ty = $('typeFilter').value;
+  const st = +$('starsFilter').value, src = $('sourceFilter').value, past = $('showPast').checked;
+  let list = events.filter(ev =>
+    (past || !isPast(ev)) &&
+    (r==='ALL' || ev.region===r) &&
+    (t==='ALL' || ev.tags.includes(t)) &&
+    (ty==='ALL' || ev.type===ty) &&
+    ev.stars >= st &&
+    (src==='ALL' || ev.source===src) &&
+    (!q || [ev.title, ev.city, ev.desc, ev.organizer, ev.tags.join(' '), REGIONS[ev.region].label, fmtDate(ev)].join(' ').toLowerCase().includes(q))
+  );
+  if ($('sortSelect').value==='stars') list.sort((a,b) => b.stars-a.stars || parse(a.start)-parse(b.start));
+  else list.sort((a,b) => (isPast(a)-isPast(b)) || parse(a.start)-parse(b.start));
+  return list;
+}
+
+function renderKpis(){
+  const up = events.filter(e => !isPast(e));
+  $('kpiUpcoming').textContent = up.length;
+  $('kpiFive').textContent = up.filter(e => e.stars===5).length;
+  $('kpi90').textContent = up.filter(e => daysTo(e) <= 90).length;
+  $('kpiRegions').textContent = new Set(up.map(e => e.region)).size;
+
+  const top = up.filter(e => e.stars>=4).sort((a,b) => b.stars-a.stars || parse(a.start)-parse(b.start)).slice(0,6);
+  $('topList').innerHTML = top.map(e => `
+    <button data-open="${e.id}" class="text-left bg-white/10 hover:bg-white/20 transition rounded-xl px-3 py-2 border border-white/10">
+      <div class="flex items-center justify-between gap-2">
+        <span class="text-[13px] font-bold truncate">${esc(e.title.split(' – ')[0])}</span>
+        <span class="text-orange-300 shrink-0">${starsHtml(e.stars)}</span>
+      </div>
+      <div class="text-[11px] text-blue-100">${fmtDate(e)} · ${esc(e.city)}</div>
+    </button>`).join('');
+
+  const counts = Object.keys(REGIONS).map(k => [k, up.filter(e => e.region===k).length]);
+  const max = Math.max(1, ...counts.map(c => c[1]));
+  $('regionBars').innerHTML = counts.map(([k,n]) => `
+    <button data-region="${k}" class="w-full text-left group">
+      <div class="flex justify-between text-[11px] text-slate-600 mb-0.5"><span class="group-hover:text-[#F8820A] font-semibold">${REGIONS[k].label}</span><span>${n}</span></div>
+      <div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-2 rounded-full" style="width:${n/max*100}%;background:${REGIONS[k].bar}"></div></div>
+    </button>`).join('');
+}
+
+function render(){
+  renderKpis();
+  const list = getFiltered();
+  $('resultCount').textContent = `${list.length} evento(s)`;
+  $('emptyState').classList.toggle('hidden', list.length>0);
+  $('eventsGrid').innerHTML = list.map(ev => {
+    const s = statusOf(ev), R = REGIONS[ev.region];
+    return `
+    <div class="bg-white rounded-2xl p-5 border ${ev.stars===5 && !isPast(ev) ? 'border-orange-300 ring-1 ring-orange-200' : 'border-slate-200'} shadow-sm hover:shadow-md transition flex flex-col ${isPast(ev)?'opacity-70':''}">
+      <div class="flex items-center justify-between gap-2 mb-3">
+        <span class="chip bg-orange-50 text-[#F8820A] border-orange-200">${esc(ev.type)}</span>
+        <div class="flex items-center gap-1.5">
+          <span class="chip ${R.color}">${R.label}</span>
+          <span class="chip ${s.c}">${s.t}</span>
+        </div>
+      </div>
+      <h3 class="text-[15px] font-bold text-[#06418A] mb-2 line-clamp-2">${esc(ev.title)}</h3>
+      <div class="flex items-center gap-2 mb-3 text-[#F8820A]">${starsHtml(ev.stars)}<span class="text-[10px] text-slate-400 uppercase font-bold">networking</span></div>
+      <div class="space-y-1 text-xs text-slate-500 mb-3">
+        <div class="flex items-center gap-2"><i class="fa-regular fa-calendar text-[#F8820A] w-4"></i><span class="font-semibold text-slate-700">${fmtDate(ev)}</span>${ev.confirmed?'':'<i class="fa-solid fa-circle-exclamation text-amber-500" title="Data a confirmar"></i>'}</div>
+        <div class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-slate-400 w-4"></i><span>${esc(ev.city)} · ${esc(ev.venue)}</span></div>
+        <div class="flex items-center gap-2"><i class="fa-solid fa-users text-slate-400 w-4"></i><span class="line-clamp-2">${esc(ev.size)}</span></div>
+      </div>
+      <p class="text-xs text-slate-600 line-clamp-3 mb-3 leading-relaxed">${esc(ev.desc)}</p>
+      <div class="flex flex-wrap gap-1 mb-4">${ev.tags.map(t=>`<span class="text-[10px] px-2 py-0.5 rounded bg-slate-100 text-slate-600">${esc(t)}</span>`).join('')}</div>
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between mt-auto">
+        <span class="text-[11px] text-slate-400 truncate max-w-[160px]">Org: ${esc(ev.organizer)}</span>
+        <button data-open="${ev.id}" class="text-xs font-bold text-[#06418A] hover:text-[#F8820A] flex items-center gap-1.5 bg-blue-50 hover:bg-orange-50 px-3 py-1.5 rounded-xl border border-blue-100">Detalhes <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ======================= MODALS =======================
+const show = id => { $(id).classList.remove('hidden'); $(id).classList.add('flex'); };
+const hide = id => { $(id).classList.add('hidden'); $(id).classList.remove('flex'); };
+let current = null;
+
+function openDetail(id){
+  const ev = events.find(e => e.id===id); if(!ev) return; current = ev;
+  $('mTags').innerHTML = [`<span class="chip bg-orange-50 text-[#F8820A] border-orange-200">${esc(ev.type)}</span>`, `<span class="chip ${REGIONS[ev.region].color}">${REGIONS[ev.region].label}</span>`, ...ev.tags.map(t=>`<span class="chip bg-slate-50 text-slate-600 border-slate-200">${esc(t)}</span>`)].join('');
+  $('mTitle').textContent = ev.title;
+  $('mOrganizer').textContent = 'Organização: ' + ev.organizer;
+  $('mDate').innerHTML = esc(fmtDate(ev)) + (ev.confirmed ? '' : ' <span class="text-amber-600 text-xs font-semibold">· a confirmar</span>');
+  $('mLocation').textContent = `${ev.city} · ${ev.venue}`;
+  $('mSize').textContent = ev.size;
+  $('mStars').innerHTML = starsHtml(ev.stars);
+  $('mDesc').textContent = ev.desc;
+  $('mNet').textContent = ev.net;
+  $('mAction').textContent = ev.action;
+  $('mSource').textContent = 'Fonte: ' + srcName(ev.source);
+  $('mLink').href = ev.link;
+  show('detailModal');
+}
+
+document.addEventListener('click', e => {
+  const o = e.target.closest('[data-open]'); if (o) return openDetail(o.dataset.open);
+  const c = e.target.closest('[data-close]'); if (c) return hide(c.dataset.close);
+  const r = e.target.closest('[data-region]'); if (r) { $('regionFilter').value = r.dataset.region; render(); $('eventsGrid').scrollIntoView({behavior:'smooth'}); return; }
+  if (['detailModal','addModal','sourcesModal'].includes(e.target.id)) hide(e.target.id);
+});
+document.addEventListener('keydown', e => { if (e.key==='Escape') ['detailModal','addModal','sourcesModal'].forEach(hide); });
+
+$('openSourcesBtn').onclick = () => {
+  $('sourcesList').innerHTML = SOURCES.filter(s=>s.id!=='manual').map(s => `
+    <a href="${s.url}" target="_blank" rel="noopener" class="flex items-center justify-between gap-2 p-3 rounded-xl border border-slate-200 hover:border-[#F8820A] hover:bg-orange-50 transition">
+      <span class="font-semibold text-slate-700">${esc(s.name)}</span><span class="chip bg-slate-50 text-slate-500 border-slate-200">${esc(s.scope)}</span>
+    </a>`).join('');
+  show('sourcesModal');
+};
+
+// ======================= ADD EVENT =======================
+$('openAddModalBtn').onclick = () => show('addModal');
+$('addForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const start = $('aStart').value, end = $('aEnd').value < start ? start : $('aEnd').value;
+  events.push({
+    id:'m'+Date.now(), title:$('aTitle').value, type:$('aType').value, tags:[$('aTag').value], region:$('aRegion').value,
+    city:$('aCity').value, venue:'—', start, end, confirmed:true, organizer:'Cadastro BSA', size:'—', stars:+$('aStars').value,
+    desc:$('aDesc').value || 'Evento adicionado manualmente.', net:$('aDesc').value || '—', action:'Definir.',
+    link:$('aLink').value || 'https://www.bertoliniarmazenagem.com.br', source:'manual'
+  });
+  hide('addModal'); e.target.reset(); render();
+});
+
+// ======================= EXPORT =======================
+function download(name, content, type){
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([content], {type}));
+  a.download = name; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href), 1000);
+}
+$('exportCsvBtn').onclick = () => {
+  const cols = ['Evento','Formato','Temas','Região','Cidade','Local','Início','Fim','Data confirmada','Networking (1-5)','Porte','Por que vale','Ação recomendada','Organizador','Link'];
+  const q = v => '"' + String(v ?? '').replace(/"/g,'""') + '"';
+  const rows = getFiltered().map(e => [e.title,e.type,e.tags.join(' | '),REGIONS[e.region].label,e.city,e.venue,e.start,e.end,e.confirmed?'Sim':'A confirmar',e.stars,e.size,e.net,e.action,e.organizer,e.link].map(q).join(';'));
+  download('radar_feiras_bertolini.csv', '﻿' + [cols.map(q).join(';'), ...rows].join('\n'), 'text/csv;charset=utf-8');
+};
+$('mIcs').onclick = () => {
+  if (!current) return;
+  const d = s => s.replace(/-/g,'');
+  const endPlus = (() => { const x = parse(current.end); x.setDate(x.getDate()+1); return `${x.getFullYear()}${String(x.getMonth()+1).padStart(2,'0')}${String(x.getDate()).padStart(2,'0')}`; })();
+  const clean = s => String(s).replace(/[,;]/g,' ').replace(/\n/g,' ');
+  const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Bertolini BSA//Radar Feiras//PT','BEGIN:VEVENT',
+    `UID:${current.id}@bertolini-radar`, `DTSTAMP:${d(new Date().toISOString().slice(0,10))}T000000Z`,
+    `DTSTART;VALUE=DATE:${d(current.start)}`, `DTEND;VALUE=DATE:${endPlus}`,
+    `SUMMARY:${clean(current.title)}`, `LOCATION:${clean(current.city + ' - ' + current.venue)}`,
+    `DESCRIPTION:${clean(current.action + ' | ' + current.link)}`, 'END:VEVENT','END:VCALENDAR'].join('\r\n');
+  download(current.id + '.ics', ics, 'text/calendar');
+};
+
+// ======================= LISTENERS =======================
+['searchInput'].forEach(id => $(id).addEventListener('input', render));
+['regionFilter','tagFilter','typeFilter','starsFilter','sortSelect','sourceFilter','showPast'].forEach(id => $(id).addEventListener('change', render));
+render();
+</script>
 </body>
 </html>
